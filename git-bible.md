@@ -15,7 +15,7 @@ master será creada por defecto, luego aplicas GIT FLOW
     - Intentar mezclar en tu local antes de subir
 
     ```bash
-    ssh -T git@code.pyxelsolution.com  # Pin inicial con SSH al repositorio remoto 
+    ssh -T git@<repository_url>.com  # Pin inicial con SSH al repositorio remoto 
     git remote add origin  <url_repo_origin>
     git fetch origin <branch_name>
     git checkout -b develop origin/develop # crea develop a partir de origin/develop
