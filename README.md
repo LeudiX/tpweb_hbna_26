@@ -8,6 +8,13 @@
 - **Develop branch:** `[develop-26]` Development stable releases only
 - **Custom branch:** `[feat/ticket-xxx]` Custom branch created from updated develop26 branch
 
+## Team New Target Branches
+
+- **`eq-fleet-mgmt:`** Target branch for Fleet Management Development Team
+- **`eq-geouci:`** Target branch for GEO UCI Portal Development Team
+- **`eq-portal:`** Target branch for FTI Portal Development Team
+- **`eq-sport-mgmt:`** Target branch for Sport Management Development Team
+
 ## Tasks Names
 
 **Sigla** **Categoría**         **Ejemplos de tareas**
