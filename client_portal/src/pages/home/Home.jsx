@@ -1,0 +1,186 @@
+import { useState } from "react";
+import "./home.css";
+import NoticiaCard from "../../components/Noticia/NoticiaCard";
+import ScrollApple from "../../components/ScrollApple/ScrollApple";
+import StatsBanner from "../../components/Stadistic/Stats";
+
+const noticiasEjemplo = [
+  {
+    id: "investigacion",
+    titulo: "Ideas para un futuro conectado",
+    contenido: "Proyectos académicos que acercan la tecnología a la sociedad, demostrando el impacto de nuestra facultad en el entorno actual y futuro.",
+    imagen: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85",
+    fecha: "2026-10-25",
+    destacada: true,
+    enlace: "/noticias/1",
+  },
+  {
+    id: "estudiantes",
+    titulo: "Aprender creando en equipo",
+    contenido: "El talento y la colaboración impulsan nuevas ideas entre nuestros estudiantes de tercer año, quienes desarrollan proyectos innovadores.",
+    imagen: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=85",
+    fecha: "2026-10-20",
+    destacada: false,
+    enlace: "/noticias/2",
+  },
+  {
+    id: "eventos",
+    titulo: "Encuentros para compartir conocimiento",
+    contenido: "Conferencias y actividades para toda la comunidad universitaria este próximo mes. No te pierdas las ponencias de nuestros expertos.",
+    imagen: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=85",
+    fecha: "2026-10-15",
+    destacada: false,
+    enlace: "/noticias/3",
+  },
+  {
+    id: "eventos",
+    titulo: "Encuentros para compartir conocimiento",
+    contenido: "Conferencias y actividades para toda la comunidad universitaria este próximo mes. No te pierdas las ponencias de nuestros expertos.",
+    imagen: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=85",
+    fecha: "2026-10-15",
+    destacada: false,
+    enlace: "/noticias/3",
+  },
+  {
+    id: "eventos",
+    titulo: "Encuentros para compartir conocimiento",
+    contenido: "Conferencias y actividades para toda la comunidad universitaria este próximo mes. No te pierdas las ponencias de nuestros expertos.",
+    imagen: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=85",
+    fecha: "2026-10-15",
+    destacada: false,
+    enlace: "/noticias/3",
+  },
+  {
+    id: "eventos",
+    titulo: "Encuentros para compartir conocimiento",
+    contenido: "Conferencias y actividades para toda la comunidad universitaria este próximo mes. No te pierdas las ponencias de nuestros expertos.",
+    imagen: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=85",
+    fecha: "2026-10-15",
+    destacada: false,
+    enlace: "/noticias/3",
+  },
+];
+
+const estadisticas = [
+  { numero: "+2,400", texto: "Ingenieros y Especialistas Graduados" },
+  { numero: "14", texto: "Laboratorios y Cátedras de I+D" },
+  { numero: "JAN", texto: "Acreditación de Excelencia Académica" },
+  { numero: "38+", texto: "Premios Nacionales en Software e Innovación" },
+];
+
+// 2. El ícono de la flecha
+function IconoFlecha() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M4 12h15M13 5l7 7-7 7" />
+    </svg>
+  );
+}
+
+export default function Home() {
+    return (
+    
+        <div className="home">
+          {/* SECCIÓN HERO */}
+          <section className="hero">
+            <div className="hero-fondo-oscuro"></div>
+            <div className="hero-contenido">
+              <p className="hero-subtitulo">Universidad de las Ciencias Informáticas</p>
+              <h1 className="hero-titulo">
+                Facultad de <br /> Tecnologías Interactivas
+              </h1>
+              <p className="hero-descripcion">
+                Formamos profesionales que imaginan, diseñan y construyen nuevas experiencias digitales.
+              </p>
+              <button className="hero-boton">Conoce la facultad</button>
+            </div>
+            {/* <StatsBanner estadisticas={estadisticas} /> */}
+          </section>
+
+        {/* SECCIÓN NOTICIA */}
+        <section className="seccion-noticias" id="investigacion">
+          <div className="noticias-contenedor">
+            {/* Scroll Apple para aplicar el componente de la transición parecida a Apple */}
+            <ScrollApple> 
+              <div className="noticias-encabezado">
+                <div>
+                  <p className="etiqueta-seccion">02 — Actualidad</p>
+                  <h2 className="noticias-titulo">Últimas Noticias</h2>
+                </div>
+              </div>
+             </ScrollApple>
+
+            <div className="noticias-cuadricula">
+              {/* Renderizamos directamente los datos de ejemplo */}
+              {noticiasEjemplo.map((noticia) => (
+                <NoticiaCard 
+                  key={noticia.id} 
+                  noticia={noticia} 
+                  destacada={noticia.destacada} 
+                />
+              ))}
+            </div>
+
+          </div>
+        </section>
+
+        {/* SECCIÓN La facultad */}
+          <section className="seccion-intro" id="facultad">
+            <div className="intro-contenedor">
+              
+              <ScrollApple direction="left">
+                <div className="intro-texto-principal">
+                  <p className="etiqueta-seccion">03 — La facultad</p>
+                  <h2 className="intro-titulo">
+                    La tecnología también <em>se imagina.</em>
+                  </h2>
+                </div>
+              </ScrollApple>
+
+              <ScrollApple direction="right" delay={200}>
+              <div className="intro-texto-secundario">
+                <p className="intro-descripcion">
+                  Un espacio para aprender, investigar y desarrollar soluciones digitales con impacto. Conoce las personas y proyectos que forman parte de nuestra comunidad.
+                </p>
+                <a className="enlace-verde" href="#extension">
+                  Conoce nuestra historia <IconoFlecha />
+                </a>
+              </div>
+            </ScrollApple>
+            </div>
+          </section>
+
+         {/* --- SECCIÓN COMUNIDAD --- */}
+          <section className="seccion-historia" id="extension">
+            <div className="historia-contenedor">
+
+              {/* Columna Izquierda */}
+              <div className="historia-texto">
+                <p className="etiqueta-seccion-clara">02 — Comunidad</p>
+                <h2 className="historia-titulo">Una historia que seguimos creando.</h2>
+                <p className="historia-descripcion">
+                  Estudiantes y docentes colaboran para convertir preguntas en proyectos, conocimiento y oportunidades.
+                </p>
+                <a className="enlace-claro" href="#acerca">
+                  Explora la facultad <IconoFlecha />
+                </a>
+              </div>
+
+              {/* Columna Derecha */}
+              <div className="historia-imagen-contenedor">
+                <figure className="historia-figura">
+                  <img 
+                    src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=85" 
+                    alt="Personas colaborando alrededor de una mesa" 
+                    loading="lazy" 
+                    className="historia-imagen"
+                  />
+                </figure>
+              </div>
+
+            </div>
+          </section>
+
+        </div>
+     );
+}

@@ -1,0 +1,24 @@
+/* =========================================
+   COMPONENTE: ICONO SOCIAL INDIVIDUAL
+   ========================================= */
+
+.social-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 0.4rem;
+  color: #a7f3d0; /* Color verde menta para el icono */
+  font-size: 1.1rem; /* Controla el tamaño del icono de Font Awesome */
+  transition: background-color 0.3s, transform 0.2s, color 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Al pasar el ratón, el fondo se pone verde y el icono blanco */
+.social-icon:hover {
+  background-color: var(--color-primary);
+  color: white; 
+  transform: translateY(-2px);
+}

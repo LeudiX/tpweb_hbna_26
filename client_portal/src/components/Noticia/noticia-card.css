@@ -1,0 +1,104 @@
+/* =========================================
+   COMPONENTE: TARJETA DE NOTICIA (Compacta y Moderna)
+   ========================================= */
+
+.noticia-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 20px; /* Bordes más suaves y modernos */
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); /* Sombra muy sutil */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Borde blanco sutil */
+}
+
+/* Efecto flotante al pasar el ratón */
+.noticia-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(7, 59, 43, 0.1); /* Sombra con el verde oscuro del portal */
+}
+
+/* Imagen (Más pequeña para que la tarjeta no sea gigante) */
+.noticia-card-imagen-contenedor {
+  width: 100%;
+  height: 200px; /* Reducido de 220px a 200px */
+  overflow: hidden;
+}
+
+.noticia-card-imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.noticia-card:hover .noticia-card-imagen {
+  transform: scale(1.05);
+}
+
+/* Contenido */
+.noticia-card-contenido {
+  padding: 1.5rem; /* Un poco menos de padding para hacerla más compacta */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.noticia-card-fecha {
+  font-size: 0.75rem;
+  color: var(--color-primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.6rem;
+}
+
+.noticia-card-titulo {
+  font-family: var(--font-headings);
+  font-size: 1.3rem; /* Título un poco más pequeño */
+  color: var(--color-dark);
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+}
+
+.noticia-card-extracto {
+  font-size: 0.9rem; /* Texto más pequeño */
+  color: #5a6b63;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  
+  /* Truncar texto a 3 líneas */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Botón */
+.noticia-card-boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.noticia-card-boton span {
+  transition: transform 0.3s ease;
+}
+
+.noticia-card:hover .noticia-card-boton span {
+  transform: translateX(4px);
+}
+
+/* Ocultamos la variante de "destacada" para que todas se vean uniformes en la cuadrícula */
+.noticia-card-destacada {
+  /* Al no ponerle reglas especiales, se comportará igual que las demás */
+}
