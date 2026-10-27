@@ -300,7 +300,73 @@
     grid-template-columns: repeat(2, 1fr); 
   }
 
-  /* La Facultad */
+  /* =========================================
+   CONTROLES DE PAGINACIÓN (Mobile-First)
+   ========================================= */
+
+.paginacion-controles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; /* Espacio entre botones en móvil */
+  margin-top: 2.5rem; /* Separación de las tarjetas de arriba */
+  padding: 0 1rem;
+}
+
+.btn-pagina {
+  background-color: var(--color-primary); /* El verde institucional */
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem; /* Tamaño táctil cómodo para móvil */
+  border-radius: 8px; /* Bordes redondeados modernos */
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Estado de los botones cuando están deshabilitados (ej. no hay página anterior) */
+.btn-pagina:disabled {
+  background-color: #cbd5e1; /* Gris claro para indicar que no se puede hacer clic */
+  color: #94a3b8;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.pagina-texto {
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-dark);
+  font-size: 0.9rem;
+}
+
+/* =========================================
+   ESCRITORIO (A partir de 768px)
+   ========================================= */
+@media (min-width: 768px) {
+  .paginacion-controles {
+    gap: 1.5rem; /* Más espacio entre elementos en PC */
+    margin-top: 3.5rem;
+  }
+
+  .btn-pagina {
+    padding: 0.8rem 1.5rem; /* Botones un poco más grandes */
+    font-size: 1rem;
+  }
+
+  /* Efecto Hover solo en dispositivos con ratón (PC) */
+  .btn-pagina:hover:not(:disabled) {
+    background-color: var(--color-dark); /* Se vuelve más oscuro */
+    transform: translateY(-2px); /* Pequeño salto */
+    box-shadow: 0 4px 10px rgba(11, 107, 75, 0.3);
+  }
+
+  .pagina-texto {
+    font-size: 1rem;
+  }
+}
+
+   /* La Facultad */
   .seccion-intro {
     padding: 8rem 2rem;
   }

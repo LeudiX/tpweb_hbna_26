@@ -1,66 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./home.css";
 import NoticiaCard from "../../components/Noticia/NoticiaCard";
 import ScrollApple from "../../components/ScrollApple/ScrollApple";
 // import StatsBanner from "../../components/Stadistic/Stats";
 import Extension from "../../components/Extensión/Extension";
-
-const noticiasEjemplo = [
-  {
-    id: "investigacion",
-    titulo: "Ideas para un futuro conectado",
-    contenido: "Proyectos académicos que acercan la tecnología a la sociedad, demostrando el impacto de nuestra facultad en el entorno actual y futuro.",
-    imagen: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85",
-    fecha: "2026-10-25",
-    destacada: true,
-    enlace: "/noticias/1",
-  },
-  {
-    id: "estudiantes",
-    titulo: "Aprender creando en equipo",
-    contenido: "El talento y la colaboración impulsan nuevas ideas entre nuestros estudiantes de tercer año, quienes desarrollan proyectos innovadores.",
-    imagen: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=85",
-    fecha: "2026-10-20",
-    destacada: false,
-    enlace: "/noticias/2",
-  },
-  {
-    id: "eventos",
-    titulo: "Encuentros para compartir conocimiento",
-    contenido: "Conferencias y actividades para toda la comunidad universitaria este próximo mes. No te pierdas las ponencias de nuestros expertos.",
-    imagen: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=85",
-    fecha: "2026-10-15",
-    destacada: false,
-    enlace: "/noticias/3",
-  },
-  {
-    id: "eventos",
-    titulo: "Encuentros para compartir conocimiento",
-    contenido: "Conferencias y actividades para toda la comunidad universitaria este próximo mes. No te pierdas las ponencias de nuestros expertos.",
-    imagen: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=85",
-    fecha: "2026-10-15",
-    destacada: false,
-    enlace: "/noticias/3",
-  },
-  {
-    id: "eventos",
-    titulo: "Encuentros para compartir conocimiento",
-    contenido: "Conferencias y actividades para toda la comunidad universitaria este próximo mes. No te pierdas las ponencias de nuestros expertos.",
-    imagen: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=85",
-    fecha: "2026-10-15",
-    destacada: false,
-    enlace: "/noticias/3",
-  },
-  {
-    id: "eventos",
-    titulo: "Encuentros para compartir conocimiento",
-    contenido: "Conferencias y actividades para toda la comunidad universitaria este próximo mes. No te pierdas las ponencias de nuestros expertos.",
-    imagen: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=85",
-    fecha: "2026-10-15",
-    destacada: false,
-    enlace: "/noticias/3",
-  },
-];
+import { obtenerNoticias } from "../../services/noticiaService";
 
 const estadisticas = [
   { numero: "+2,400", texto: "Ingenieros y Especialistas Graduados" },
@@ -73,10 +17,10 @@ const estadisticas = [
 const datosCaimanesPremio = {
   imagen: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1200&q=80",
   altImagen: "Afición Caimán en el estadio",
-  textoBadge: "🏆 Campeones Juegos Deportivos Mella 2023-2024",
+  textoBadge: "Campeones Juegos Deportivos Mella 2023-2024",
   titulo: "Caimanes: Pasión por la Competencia y la Hermandad",
   descripcion: "Desde las noches sin dormir en las Game Jams diseñando mundos en 3D hasta las gradas repletas con camisetas verdes en los campeonatos de la UCI, la FTI se define por su energía creadora, su identidad colectiva y su orgullo deportivo.",
-  infoEsports: "🎮 Gaming Arena: La facultad cuenta con escuadras oficiales de Dota 2, Valorant, CS2 y fighting games que compiten en ligas universitarias nacionales con transmisión en vivo."
+  infoEsports: "Gaming Arena: La facultad cuenta con escuadras oficiales de Dota 2, Valorant, CS2 y fighting games que compiten en ligas universitarias nacionales con transmisión en vivo."
 };
 
 // 2. El ícono de la flecha
@@ -89,6 +33,53 @@ function IconoFlecha() {
 }
 
 export default function Home() {
+
+  /* UseEffect para manejar los datos de las noticias y para la paginación*/
+  const [paginaActual, setPaginaActual] = useState(1);
+  const [haySiguiente, setHaySiguiente] = useState(false);
+  const [hayAnterior, setHayAnterior] = useState(false);
+
+  const [noticias, setNoticias] = useState([]);
+  const [cargando, setCargando] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // Creamos una función asíncrona interna
+    const cargarDatos = async () => {
+      try {
+        setCargando(true);
+        // Usamos await para esperar a que el servicio termine
+        // Y guardamos los datos en la variable datos, además guardamos las noticias y los datos de paginación en sus respectivos estados
+        const datos = await obtenerNoticias(paginaActual);
+        setNoticias(datos.noticias);
+        setHaySiguiente(datos.haySiguiente);
+        setHayAnterior(datos.hayAnterior);
+      } catch (err) {
+        setError("No se pudieron cargar las noticias, intenta de nuevo más tarde.");
+      } finally {
+        // El bloque finally se ejecuta siempre (haya éxito o error)
+        setCargando(false);
+      }
+    };
+
+    // Ejecutamos la función
+    cargarDatos();
+
+    // Limpiamos el error al cambiar de página para que no se quede el mensaje de error en la pantalla
+  }, [paginaActual]);
+
+  // Función para renderizar las noticias según el estado de carga, error o si no hay noticias, si hay noticias, las mapea y las renderiza con el componente NoticiaCard
+  const renderizarNoticias = () => {
+    if (cargando) return <p>Cargando...</p>;
+    if (error) return <p>{error}</p>;
+    if (noticias.length === 0) return <p>No hay noticias todavía, espere a que se publiquen.</p>;
+
+    return noticias.map((noticia) => (
+      <ScrollApple key={noticia.id}>
+        <NoticiaCard noticia={noticia} />
+      </ScrollApple>
+    ));
+  };
     return (
     
         <div className="home">
@@ -123,19 +114,34 @@ export default function Home() {
                </ScrollApple>
 
               <div className="noticias-cuadricula">
-                {/* Renderizamos directamente los datos de ejemplo */}
-                {noticiasEjemplo.map((noticia) => (
-                  <NoticiaCard 
-                    key={noticia.id} 
-                    noticia={noticia} 
-                    destacada={noticia.destacada} 
-                  />
-                ))}
+                {renderizarNoticias()}
               </div>
             </div>
+
+            {/* CONTROLES DE PAGINACIÓN que ofrece Django Rest pro defecto*/}
+            {!cargando && !error && (
+              <div className="paginacion-controles">
+                <button 
+                  className="btn-pagina"
+                  disabled={!hayAnterior} 
+                  onClick={() => setPaginaActual(paginaActual - 1)}
+                >
+                  ← Anterior
+                </button>
+
+                <span className="pagina-texto">Página {paginaActual}</span>
+
+                <button 
+                  className="btn-pagina"
+                  disabled={!haySiguiente} 
+                  onClick={() => setPaginaActual(paginaActual + 1)}
+                >
+                  Siguiente →
+                </button>
+              </div>
+            )}
           </section>
-        </ScrollApple>
-          
+        </ScrollApple>    
 
         {/* SECCIÓN VIDA ESTUDIANTIL Y EXTENSIÓN */}
         <section id="extension">
@@ -199,7 +205,6 @@ export default function Home() {
              </div>
             </section>
           </ScrollApple>
-
         </div>
      );
 }
