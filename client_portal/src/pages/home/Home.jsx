@@ -2,7 +2,8 @@ import { useState } from "react";
 import "./home.css";
 import NoticiaCard from "../../components/Noticia/NoticiaCard";
 import ScrollApple from "../../components/ScrollApple/ScrollApple";
-import StatsBanner from "../../components/Stadistic/Stats";
+// import StatsBanner from "../../components/Stadistic/Stats";
+import Extension from "../../components/Extensión/Extension";
 
 const noticiasEjemplo = [
   {
@@ -68,6 +69,16 @@ const estadisticas = [
   { numero: "38+", texto: "Premios Nacionales en Software e Innovación" },
 ];
 
+// Datos para la tarjeta principal de los Mellas
+const datosCaimanesPremio = {
+  imagen: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1200&q=80",
+  altImagen: "Afición Caimán en el estadio",
+  textoBadge: "🏆 Campeones Juegos Deportivos Mella 2023-2024",
+  titulo: "Caimanes: Pasión por la Competencia y la Hermandad",
+  descripcion: "Desde las noches sin dormir en las Game Jams diseñando mundos en 3D hasta las gradas repletas con camisetas verdes en los campeonatos de la UCI, la FTI se define por su energía creadora, su identidad colectiva y su orgullo deportivo.",
+  infoEsports: "🎮 Gaming Arena: La facultad cuenta con escuadras oficiales de Dota 2, Valorant, CS2 y fighting games que compiten en ligas universitarias nacionales con transmisión en vivo."
+};
+
 // 2. El ícono de la flecha
 function IconoFlecha() {
   return (
@@ -124,13 +135,16 @@ export default function Home() {
           </div>
         </section>
 
+        {/* SECCIÓN VIDA ESTUDIANTIL Y EXTENSIÓN */}
+          <Extension />
+
         {/* SECCIÓN La facultad */}
           <section className="seccion-intro" id="facultad">
             <div className="intro-contenedor">
               
               <ScrollApple direction="left">
                 <div className="intro-texto-principal">
-                  <p className="etiqueta-seccion">03 — La facultad</p>
+                  <p className="etiqueta-seccion">03 — Investigación</p>
                   <h2 className="intro-titulo">
                     La tecnología también <em>se imagina.</em>
                   </h2>
@@ -140,29 +154,29 @@ export default function Home() {
               <ScrollApple direction="right" delay={200}>
               <div className="intro-texto-secundario">
                 <p className="intro-descripcion">
-                  Un espacio para aprender, investigar y desarrollar soluciones digitales con impacto. Conoce las personas y proyectos que forman parte de nuestra comunidad.
+                  Un espacio para aprender, investigar y desarrollar soluciones digitales con impacto. Conoce los centros de desarrollo y proyectos que forman a nuestra facultad.
                 </p>
                 <a className="enlace-verde" href="#extension">
-                  Conoce nuestra historia <IconoFlecha />
+                  Conoce nuestras centros de desarrollo <IconoFlecha />
                 </a>
               </div>
             </ScrollApple>
             </div>
           </section>
-
-         {/* --- SECCIÓN COMUNIDAD --- */}
+   
+         {/* --- SECCIÓN Consejo dedirección --- */}
           <section className="seccion-historia" id="extension">
             <div className="historia-contenedor">
 
               {/* Columna Izquierda */}
               <div className="historia-texto">
-                <p className="etiqueta-seccion-clara">02 — Comunidad</p>
-                <h2 className="historia-titulo">Una historia que seguimos creando.</h2>
+                <p className="etiqueta-seccion-clara">04 — Consejo de Dirección</p>
+                <h2 className="historia-titulo">Una facultad no se construye sola.</h2>
                 <p className="historia-descripcion">
                   Estudiantes y docentes colaboran para convertir preguntas en proyectos, conocimiento y oportunidades.
                 </p>
                 <a className="enlace-claro" href="#acerca">
-                  Explora la facultad <IconoFlecha />
+                  Ver los ejecutivos de la FTI <IconoFlecha />
                 </a>
               </div>
 
@@ -177,8 +191,7 @@ export default function Home() {
                   />
                 </figure>
               </div>
-
-            </div>
+           </div>
           </section>
 
         </div>

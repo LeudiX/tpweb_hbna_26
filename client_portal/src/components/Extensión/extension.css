@@ -1,0 +1,71 @@
+/* SECCIÓN: VIDA ESTUDIANTIL */
+
+.vida-estudiantil {
+  /* Fondo oscuro con un toque de verde esmeralda radial */
+  background: radial-gradient(circle at 80% 20%, #064e3b 0%, #022c22 40%, #090d16 100%);
+  color: white;
+  padding: 5rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.vida-contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Cabecera --- */
+.vida-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.vida-header-textos {
+  max-width: 700px;
+}
+
+.ex-etiqueta-seccion{
+    color: #94a3b8; /* Gris azulado */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.vida-titulo {
+  font-family: var(--font-headings);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.vida-descripcion {
+  color: #cbd5e1;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* =========================================
+   ESCRITORIO
+   ========================================= */
+@media (min-width: 768px) {
+  .vida-estudiantil {
+    padding: 6rem 2rem;
+  }
+
+  .vida-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end; /* Alinea los filtros con la base del texto */
+    gap: 3rem;
+  }
+
+  .vida-header-textos {
+    flex: 1;
+  }
+}
+
+
+
