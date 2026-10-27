@@ -108,38 +108,39 @@ export default function Home() {
             {/* <StatsBanner estadisticas={estadisticas} /> */}
           </section>
 
-        {/* SECCIÓN NOTICIA */}
-        <section className="seccion-noticias" id="noticias">
-          <div className="noticias-contenedor">
-            {/* Scroll Apple para aplicar el componente de la transición parecida a Apple */}
-            <ScrollApple> 
-              <div className="noticias-encabezado">
-                <div>
-                  <p className="etiqueta-seccion">02 — Actualidad</p>
-                  <h2 className="noticias-titulo">Últimas Noticias</h2>
+        {/* Scroll Apple para aplicar el componente de la transición parecida a Apple */}
+        <ScrollApple>
+          {/* SECCIÓN NOTICIA */}
+          <section className="seccion-noticias" id="noticias">
+            <div className="noticias-contenedor">
+              <ScrollApple> 
+                <div className="noticias-encabezado">
+                  <div>
+                    <p className="etiqueta-seccion">02 — Actualidad</p>
+                    <h2 className="noticias-titulo">Últimas Noticias</h2>
+                  </div>
                 </div>
+               </ScrollApple>
+
+              <div className="noticias-cuadricula">
+                {/* Renderizamos directamente los datos de ejemplo */}
+                {noticiasEjemplo.map((noticia) => (
+                  <NoticiaCard 
+                    key={noticia.id} 
+                    noticia={noticia} 
+                    destacada={noticia.destacada} 
+                  />
+                ))}
               </div>
-             </ScrollApple>
-
-            <div className="noticias-cuadricula">
-              {/* Renderizamos directamente los datos de ejemplo */}
-              {noticiasEjemplo.map((noticia) => (
-                <NoticiaCard 
-                  key={noticia.id} 
-                  noticia={noticia} 
-                  destacada={noticia.destacada} 
-                />
-              ))}
             </div>
-
-          </div>
-        </section>
+          </section>
+        </ScrollApple>
+          
 
         {/* SECCIÓN VIDA ESTUDIANTIL Y EXTENSIÓN */}
         <section id="extension">
           <Extension />    
         </section>
-          
 
         {/* SECCIÓN La Investigación */}
           <section className="seccion-intro" id="investigacion">
@@ -168,34 +169,36 @@ export default function Home() {
           </section>
    
          {/* --- SECCIÓN Consejo dedirección --- */}
-          <section className="seccion-historia" id="consejo-direccion">
-            <div className="historia-contenedor">
+          <ScrollApple>
+            <section className="seccion-historia" id="consejo-direccion">
+              <div className="historia-contenedor">
 
-              {/* Columna Izquierda */}
-              <div className="historia-texto">
-                <p className="etiqueta-seccion-clara">04 — Consejo de Dirección</p>
-                <h2 className="historia-titulo">Una facultad no se construye sola.</h2>
-                <p className="historia-descripcion">
-                  Estudiantes y docentes colaboran para convertir preguntas en proyectos, conocimiento y oportunidades.
-                </p>
-                <a className="enlace-claro" href="#acerca">
-                  Ver los ejecutivos de la FTI <IconoFlecha />
-                </a>
-              </div>
+                {/* Columna Izquierda */}
+                <div className="historia-texto">
+                  <p className="etiqueta-seccion-clara">04 — Consejo de Dirección</p>
+                  <h2 className="historia-titulo">Una facultad no se construye sola.</h2>
+                  <p className="historia-descripcion">
+                    Estudiantes y docentes colaboran para convertir preguntas en proyectos, conocimiento y oportunidades.
+                  </p>
+                  <a className="enlace-claro" href="#acerca">
+                    Ver los ejecutivos de la FTI <IconoFlecha />
+                  </a>
+                </div>
 
-              {/* Columna Derecha */}
-              <div className="historia-imagen-contenedor">
-                <figure className="historia-figura">
-                  <img 
-                    src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=85" 
-                    alt="Personas colaborando alrededor de una mesa" 
-                    loading="lazy" 
-                    className="historia-imagen"
-                  />
-                </figure>
-              </div>
-           </div>
-          </section>
+                {/* Columna Derecha */}
+                <div className="historia-imagen-contenedor">
+                  <figure className="historia-figura">
+                    <img 
+                      src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=85" 
+                      alt="Personas colaborando alrededor de una mesa" 
+                      loading="lazy" 
+                      className="historia-imagen"
+                    />
+                  </figure>
+                </div>
+             </div>
+            </section>
+          </ScrollApple>
 
         </div>
      );

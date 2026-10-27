@@ -1,4 +1,9 @@
 /* src/index.css */
+html {
+
+  /* Para el navegado suave a las sections */
+  scroll-behavior: smooth;
+}
 
 /* 1. Reset básico para que todos los navegadores se vean igual */
 * {
@@ -25,6 +30,7 @@ body {
   color: var(--color-text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  /* En src/index.css */
 
   /* Para que no haya scroll horizontal */
   overflow-x: hidden;

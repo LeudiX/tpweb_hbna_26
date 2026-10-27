@@ -3,6 +3,7 @@ import Esfera from "./Esfera";
 import "./extension.css";
 import Premio from "./Premio";
 import EventTable from "../Evento/EventTable";
+import ScrollApple from "../ScrollApple/ScrollApple";
 
 // Datos para la tarjeta principal de los Mellas
 const datosCaimanesPremio = {
@@ -20,14 +21,14 @@ const eventos = [
   { id: 3, title: 'Taller Comunitario de Robótica', fecha: '05 Diciembre', lugar: 'Escuela La Lisa', tag: 'Extensión' }
 ];
 
-export default function VidaEstudiantil() {
+export default function Extension() {
   // Estado para manejar qué filtro está seleccionado
   const [ejeSeleccionado, setEjeSeleccionado] = useState('todos');
 
   return (
     <section id="extension" className="vida-estudiantil">
       <div className="vida-contenedor">
-        
+        <ScrollApple direction="up">              
         {/* Cabecera Principal */}
         <div className="vida-header">
           
@@ -46,25 +47,28 @@ export default function VidaEstudiantil() {
             alSeleccionar={setEjeSeleccionado} 
           />
         </div>
-
+        </ScrollApple>
         {/* Premio Mella */}
         <section className="premio-mella">
           <Premio {...datosCaimanesPremio} />
         </section>
-
+        
         {/* Agenda de eventos*/}
-        <section className="agenda">
-          <h3 className="agenda-titulo">Agenda de Eventos</h3>
-          <EventTable eventos={eventos} />
-        </section>
+        <ScrollApple direction="right">
+          <section className="agenda">
+            <h3 className="agenda-titulo">Agenda de Eventos</h3>
+            <EventTable eventos={eventos} />
+          </section>
+        </ScrollApple>
 
         {/* AQUÍ IREMOS AGREGANDO LAS TARJETAS EN LOS SIGUIENTES PASOS */}
-        <div style={{ marginTop: '3rem', padding: '2rem', border: '1px dashed #34d399', textAlign: 'center', borderRadius: '12px', color: '#94a3b8' }}>
-          [Aquí irán las tarjetas Bento y la Agenda en el siguiente paso]
-          <br />
-          Filtro actual seleccionado: <strong>{ejeSeleccionado}</strong>
-        </div>
-
+        <ScrollApple direction="right" >
+          <div style={{ marginTop: '3rem', padding: '2rem', border: '1px dashed #34d399', textAlign: 'center', borderRadius: '12px', color: '#94a3b8' }}>
+            [Aquí irán las tarjetas Bento y la Agenda en el siguiente paso]
+            <br />
+            Filtro actual seleccionado: <strong>{ejeSeleccionado}</strong>
+          </div>
+        </ScrollApple>
       </div>
     </section>
   );
