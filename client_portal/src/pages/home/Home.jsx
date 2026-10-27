@@ -109,7 +109,7 @@ export default function Home() {
           </section>
 
         {/* SECCIÓN NOTICIA */}
-        <section className="seccion-noticias" id="investigacion">
+        <section className="seccion-noticias" id="noticias">
           <div className="noticias-contenedor">
             {/* Scroll Apple para aplicar el componente de la transición parecida a Apple */}
             <ScrollApple> 
@@ -136,10 +136,13 @@ export default function Home() {
         </section>
 
         {/* SECCIÓN VIDA ESTUDIANTIL Y EXTENSIÓN */}
-          <Extension />
+        <section id="extension">
+          <Extension />    
+        </section>
+          
 
-        {/* SECCIÓN La facultad */}
-          <section className="seccion-intro" id="facultad">
+        {/* SECCIÓN La Investigación */}
+          <section className="seccion-intro" id="investigacion">
             <div className="intro-contenedor">
               
               <ScrollApple direction="left">
@@ -165,7 +168,7 @@ export default function Home() {
           </section>
    
          {/* --- SECCIÓN Consejo dedirección --- */}
-          <section className="seccion-historia" id="extension">
+          <section className="seccion-historia" id="consejo-direccion">
             <div className="historia-contenedor">
 
               {/* Columna Izquierda */}

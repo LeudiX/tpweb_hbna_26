@@ -5,10 +5,10 @@ import "./navbar.css";
 {/* Enlaces de navegación, array con los datos de cada enlace */}
 const navLinks = [
   { label: "Facultad", href: "#facultad" },
+  { label: "Noticias", href: "#noticias" },
   { label: "Investigación", href: "#investigacion" },
-  { label: "Extensión", href: "#extension" },
-  { label: "Principales dudas", href: "#dudas" },
-  { label: "Acerca de", href: "#acerca" },
+  { label: "Extensión Universitaria", href: "#extension" },
+  { label: "Consejo de Dirección", href: "#consejo-direccion" },
 ];
 
 export default function Navbar() {
