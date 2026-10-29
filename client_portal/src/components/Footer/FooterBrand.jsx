@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-/* Iconos de FontAwesome */
+/* Iconos de FontAwesome pues se hace una importación que viene para react */
 import { 
   faTelegram, 
   faFacebook, 
@@ -8,6 +8,7 @@ import {
   faYoutube, 
   faGithub 
 } from '@fortawesome/free-brands-svg-icons';
+
 import SocialIcon from "../Icons/SocialIcons";
 
 export default function FooterBrand() {

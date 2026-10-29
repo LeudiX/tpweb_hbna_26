@@ -1,15 +1,13 @@
-/* =========================================
-   1. SECCIÓN HERO (Mobile-First)
-   ========================================= */
+/* SECCIÓN HERO (MOBILE-FIRST) */
 .hero {
   position: relative;
   width: 100%;
   min-height: 100vh; 
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centra el texto verticalmente */
+  justify-content: center; /* CENTRA EL TEXTO VERTICALMENTE */
   
-  /* Quitamos el padding lateral para que el fondo toque los bordes */
+  /* QUITAMOS EL PADDING LATERAL PARA QUE EL FONDO TOQUE LOS BORDES */
   padding: 6rem 0; 
   
   background-image: url('https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1800&q=90');
@@ -33,7 +31,7 @@
   width: 100%;
   max-width: 800px;
   color: white;
-  /* El padding va aquí para que el texto no se pegue a los bordes en móvil */
+  /* EL PADDING VA AQUÍ PARA QUE EL TEXTO NO SE PEGUE A LOS BORDES EN MÓVIL */
   padding: 0 1.5rem; 
 }
 
@@ -76,9 +74,7 @@
   transform: translateY(-2px);
 }
 
-/* =========================================
-   2. SECCIÓN NOTICIAS
-   ========================================= */
+/* SECCIÓN NOTICIAS */
 .seccion-noticias {
   padding: 5rem 1.5rem;
   background: linear-gradient(135deg, #dcefa9 0%, #92b89e 100%);
@@ -118,9 +114,7 @@
   gap: 2rem;
 }
 
-/* =========================================
-   3. SECCIÓN LA FACULTAD (Intro) - ¡RECUPERADA!
-   ========================================= */
+/* SECCIÓN LA FACULTAD (INTRO) */
 .seccion-intro {
   background-color: var(--color-bg);
   padding: 5rem 1.5rem;
@@ -191,9 +185,7 @@
   transform: translateX(4px);
 }
 
-/* =========================================
-   4. SECCIÓN HISTORIA / COMUNIDAD
-   ========================================= */
+/* SECCIÓN HISTORIA / COMUNIDAD */
 .seccion-historia {
   background-color: var(--color-primary);
   color: white;
@@ -272,11 +264,9 @@
   filter: saturate(0.8);
 }
 
-/* =========================================
-   5. MEDIA QUERIES (Escritorio)
-   ========================================= */
+/* MEDIA QUERIES (ESCRITORIO) */
 @media (min-width: 768px) {
-  /* Hero */
+  /* HERO */
   .hero {
     padding: 8rem 0; 
   }
@@ -284,7 +274,7 @@
     padding: 0 4rem; 
   }
 
-  /* Noticias */
+  /* NOTICIAS */
   .seccion-noticias {
     padding: 6rem 2rem;
   }
@@ -300,73 +290,68 @@
     grid-template-columns: repeat(2, 1fr); 
   }
 
-  /* =========================================
-   CONTROLES DE PAGINACIÓN (Mobile-First)
-   ========================================= */
-
-.paginacion-controles {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem; /* Espacio entre botones en móvil */
-  margin-top: 2.5rem; /* Separación de las tarjetas de arriba */
-  padding: 0 1rem;
-}
-
-.btn-pagina {
-  background-color: var(--color-primary); /* El verde institucional */
-  color: white;
-  border: none;
-  padding: 0.6rem 1rem; /* Tamaño táctil cómodo para móvil */
-  border-radius: 8px; /* Bordes redondeados modernos */
-  font-weight: 600;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-/* Estado de los botones cuando están deshabilitados (ej. no hay página anterior) */
-.btn-pagina:disabled {
-  background-color: #cbd5e1; /* Gris claro para indicar que no se puede hacer clic */
-  color: #94a3b8;
-  cursor: not-allowed;
-  opacity: 0.7;
-}
-
-.pagina-texto {
-  font-family: var(--font-body);
-  font-weight: 600;
-  color: var(--color-dark);
-  font-size: 0.9rem;
-}
-
-/* =========================================
-   ESCRITORIO (A partir de 768px)
-   ========================================= */
-@media (min-width: 768px) {
+  /* CONTROLES DE PAGINACIÓN (MOBILE-FIRST) */
   .paginacion-controles {
-    gap: 1.5rem; /* Más espacio entre elementos en PC */
-    margin-top: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; /* ESPACIO ENTRE BOTONES EN MÓVIL */
+    margin-top: 2.5rem; /* SEPARACIÓN DE LAS TARJETAS DE ARRIBA */
+    padding: 0 1rem;
   }
 
   .btn-pagina {
-    padding: 0.8rem 1.5rem; /* Botones un poco más grandes */
-    font-size: 1rem;
+    background-color: var(--color-primary); /* EL VERDE INSTITUCIONAL */
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem; /* TAMAÑO TÁCTIL CÓMODO PARA MÓVIL */
+    border-radius: 8px; /* BORDES REDONDEADOS MODERNOS */
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
   }
 
-  /* Efecto Hover solo en dispositivos con ratón (PC) */
-  .btn-pagina:hover:not(:disabled) {
-    background-color: var(--color-dark); /* Se vuelve más oscuro */
-    transform: translateY(-2px); /* Pequeño salto */
-    box-shadow: 0 4px 10px rgba(11, 107, 75, 0.3);
+  /* ESTADO DE LOS BOTONES CUANDO ESTÁN DESHABILITADOS */
+  .btn-pagina:disabled {
+    background-color: #cbd5e1; /* GRIS CLARO PARA INDICAR QUE NO SE PUEDE HACER CLIC */
+    color: #94a3b8;
+    cursor: not-allowed;
+    opacity: 0.7;
   }
 
   .pagina-texto {
-    font-size: 1rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--color-dark);
+    font-size: 0.9rem;
   }
-}
 
-   /* La Facultad */
+  /* ESCRITORIO (A PARTIR DE 768PX) */
+  @media (min-width: 768px) {
+    .paginacion-controles {
+      gap: 1.5rem; /* MÁS ESPACIO ENTRE ELEMENTOS EN PC */
+      margin-top: 3.5rem;
+    }
+
+    .btn-pagina {
+      padding: 0.8rem 1.5rem; /* BOTONES UN POCO MÁS GRANDES */
+      font-size: 1rem;
+    }
+
+    /* EFECTO HOVER SOLO EN DISPOSITIVOS CON RATÓN (PC) */
+    .btn-pagina:hover:not(:disabled) {
+      background-color: var(--color-dark); /* SE VUELVE MÁS OSCURO */
+      transform: translateY(-2px); /* PEQUEÑO SALTO */
+      box-shadow: 0 4px 10px rgba(11, 107, 75, 0.3);
+    }
+
+    .pagina-texto {
+      font-size: 1rem;
+    }
+  }
+
+  /* LA FACULTAD */
   .seccion-intro {
     padding: 8rem 2rem;
   }
@@ -380,7 +365,7 @@
     font-size: clamp(3rem, 5vw, 4.5rem);
   }
 
-  /* Historia */
+  /* HISTORIA */
   .seccion-historia {
     padding: 6rem 2rem;
   }

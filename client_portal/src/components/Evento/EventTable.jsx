@@ -64,6 +64,7 @@ const customStyles = {
   },
 };
 
+// Componente principal de la tabla de eventos que recibe los eventos como props
 export default function EventTable({ eventos }) {
   return (
     <div className="agenda-table-wrapper">

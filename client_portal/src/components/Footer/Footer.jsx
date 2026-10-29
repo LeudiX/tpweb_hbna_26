@@ -4,7 +4,7 @@ import Suggestion from "../Suggestion/Suggestion";
 import { useState } from "react";
 import "./footer.css";
 
-// Datos de las columnas
+// Datos de las columnas para que el codigo allá bajo sea menos 
 const columnaQuienesSomos = {
   titulo: "Quiénes somos",
   items: [

@@ -1,4 +1,4 @@
-/* --- NAVBAR (Móvil Primero) --- */
+/* NAVBAR (MÓVIL PRIMERO) */
 .navbar {
   background-color: var(--color-dark);
   color: white;
@@ -17,7 +17,7 @@
   margin: 0 auto;
 }
 
-/* Logo */
+/* LOGO */
 .logo {
   display: flex;
   align-items: center;
@@ -39,16 +39,16 @@
   color: var(--color-light);
 }
 
-/* Botón menú móvil */
+/* BOTÓN MENÚ MÓVIL */
 .boton-menu {
   background: none;
   color: white;
   font-size: 1.5rem;
 }
 
-/* Menú de navegación */
+/* MENÚ DE NAVEGACIÓN */
 .menu-navegacion {
-  display: none; /* Oculto en móvil */
+  display: none; /* OCULTO EN MÓVIL */
   flex-direction: column;
   position: absolute;
   top: 100%;
@@ -59,12 +59,12 @@
   box-shadow: 0 10px 15px rgba(0,0,0,0.2);
 }
 
-/* Cuando está abierto */
+/* CUANDO ESTÁ ABIERTO */
 .menu-navegacion.abierto {
   display: flex;
 }
 
-/* Enlaces no visitados */
+/* ENLACES NO VISITADOS */
 .enlace {
   padding: 1rem 1.5rem;
   color: rgba(255, 255, 255, 0.8);
@@ -74,33 +74,33 @@
   transition: all 0.3s ease; 
 }
 
-/* Estado Visitado (El usuario ya hizo clic aquí antes) */
+/* ESTADO VISITADO (EL USUARIO YA HIZO CLIC AQUÍ ANTES) */
 .enlace:visited {
   color: rgba(255, 255, 255, 0.6); 
 }
 
-/* 3. Estado Hover */
+/* ESTADO HOVER */
 .enlace:hover {
   color: var(--color-light); 
   background-color: rgba(255, 255, 255, 0.05); 
 }
 
-/* Estado Active */
+/* ESTADO ACTIVE */
 .enlace:active {
   color: var(--color-dark);
   background-color: var(--color-light);
 }
 
-/* 5. Estado Focus (Para navegación con teclado - Accesibilidad) */
+/* ESTADO FOCUS (ACCESIBILIDAD) */
 .enlace:focus-visible {
   outline: 2px solid var(--color-light);
   outline-offset: -2px; 
 }
 
-/* --- NAVBAR (Escritorio) --- */
+/* NAVBAR (ESCRITORIO) */
 @media (min-width: 768px) {
   .boton-menu {
-    display: none; /* Ocultamos el botón en PC */
+    display: none; /* OCULTAMOS EL BOTÓN EN PC */
   }
 
   .menu-navegacion {
@@ -126,17 +126,16 @@
     background-color: transparent; 
   }
 
-  /* Ajuste para el active en escritorio */
+  /* AJUSTE PARA EL ACTIVE EN ESCRITORIO */
   .enlace:active {
     color: var(--color-light);
     background-color: transparent;
     transform: scale(0.95); 
   }
 
-  /* Ajuste del focus en escritorio */
+  /* AJUSTE DEL FOCUS EN ESCRITORIO */
   .enlace:focus-visible {
     outline: 2px solid var(--color-light);
     outline-offset: 4px;
   }
-
 }

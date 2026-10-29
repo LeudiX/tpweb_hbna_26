@@ -129,7 +129,7 @@ MAILERS = {
     },
 }
 
-# URLS del Frontend (Client)
+# URLS del Frontend para que Django reconozca y deje hacer peticiones (Client)
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
@@ -140,6 +140,7 @@ CORS_ALLOWED_ORIGINS = [
 AUTH_USER_MODEL = 'usuarios.Usuario'
 
 # Para las validaciones de sign in cuando el usuario vaya a ingresar a una url
+# Además de del paginador por defecto que trae Rest Fremwork
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',

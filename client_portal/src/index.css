@@ -1,18 +1,17 @@
-/* src/index.css */
+/* INDEX.CSS */
 html {
-
-  /* Para el navegado suave a las sections */
+  /* PARA EL NAVEGAR SUAVE A LAS SECCIONES */
   scroll-behavior: smooth;
 }
 
-/* 1. Reset básico para que todos los navegadores se vean igual */
+/* RESET BÁSICO PARA QUE TODOS LOS NAVEGADORES SE VEAN IGUAL */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Esto es vital: el padding no aumenta el tamaño de las cajas */
+  box-sizing: border-box; /* ESTO ES VITAL: EL PADDING NO AUMENTA EL TAMAÑO DE LAS CAJAS */
 }
 
-/* 2. Variables globales (Colores institucionales) */
+/* VARIABLES GLOBALES (COLORES INSTITUCIONALES) */
 :root {
   --color-primary: #0b6b4b;
   --color-dark: #073b2b;
@@ -23,20 +22,19 @@ html {
   --font-body: Arial, Helvetica, sans-serif;
 }
 
-/* 3. Estilos base para el cuerpo */
+/* ESTILOS BASE PARA EL CUERPO */
 body {
   font-family: var(--font-body);
   background-color: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  /* En src/index.css */
 
-  /* Para que no haya scroll horizontal */
+  /* PARA QUE NO HAYA SCROLL HORIZONTAL */
   overflow-x: hidden;
 }
 
-/* 4. Estilos para enlaces y botones */
+/* ESTILOS PARA ENLACES Y BOTONES */
 a {
   text-decoration: none;
   color: inherit;

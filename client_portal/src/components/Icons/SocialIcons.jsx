@@ -1,6 +1,7 @@
 import "./social-icons.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+// Componente para agregar iconos y tiene sus props
 export default function SocialIcon({ nombre, url, icono }) {
   if (!icono) return null;
 

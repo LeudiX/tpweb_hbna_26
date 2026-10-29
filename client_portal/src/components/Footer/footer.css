@@ -1,6 +1,4 @@
-/* =========================================
-   COMPONENTE: FOOTER
-   ========================================= */
+/* FOOTER */
 
 .footer {
   background-color: var(--color-dark);
@@ -22,7 +20,7 @@
   margin-bottom: 1.5rem;
 }
 
-/* --- Columna 1: Brand --- */
+/* COLUMNA 1: BRAND */
 .footer-col-identidad {
   display: flex;
   flex-direction: column;
@@ -70,7 +68,7 @@
   transform: translateY(-2px);
 }
 
-/* --- Columnas 2 y 3 (Listas) --- */
+/* COLUMNAS 2 Y 3 (LISTAS) */
 .footer-columna {
   display: flex;
   flex-direction: column;
@@ -85,7 +83,7 @@
   margin-bottom: 1.2rem;
 }
 
-/* Reseteo de la lista */
+/* RESETEO DE LA LISTA */
 .footer-lista {
   list-style: none;
   padding: 0;
@@ -111,7 +109,7 @@
   color: white;
 }
 
-/* --- Copyright --- */
+/* COPYRIGHT */
 .footer-copyright {
   display: flex;
   flex-direction: column;
@@ -149,9 +147,7 @@
   color: var(--color-dark);
 }
 
-/* =========================================
-   ESCRITORIO (A partir de 768px)
-   ========================================= */
+/* ESCRITORIO */
 @media (min-width: 768px) {
   .footer {
     padding: 5rem 2rem 2rem;

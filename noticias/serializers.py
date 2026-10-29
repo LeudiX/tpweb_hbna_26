@@ -13,6 +13,8 @@ class NoticiaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Noticia
         fields = ['id', 'titulo', 'imagen', 'contenido', 'fecha', 'autor', 'autor_detalle']
+
+        # Para que el campp autor no sea requerido y si el usuario que hace la noticia no ingresa valor, lo ponga a él auto
         extra_kwargs = {'autor': {'required': False}}
 
 class EventoSerializer(serializers.ModelSerializer):

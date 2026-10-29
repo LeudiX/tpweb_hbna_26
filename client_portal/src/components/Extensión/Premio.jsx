@@ -1,6 +1,7 @@
 import React from 'react';
 import "./premio.css";
 
+// Componente principal que representa un premio o logro se le envía por param etros la imagen, el texto del badge, el título, la descripción y la información de eSports.
 export default function BentoPrincipal({ 
   imagen, 
   altImagen, 

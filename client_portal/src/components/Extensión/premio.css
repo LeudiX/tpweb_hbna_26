@@ -1,6 +1,4 @@
-/* =========================================
-   COMPONENTE: TARJETA PRINCIPAL (BENTO)
-   ========================================= */
+/* TARJETA PRINCIPAL PREMIO) */
 
 .bento-card {
   background-color: #0f172a; /* Fondo azul obsidiana */
@@ -89,9 +87,7 @@
   margin: 0;
 }
 
-/* =========================================
-   ESCRITORIO
-   ========================================= */
+/* ESCRITORIO */
 @media (min-width: 768px) {
   .bento-principal .imagen-contenedor {
     height: 350px;

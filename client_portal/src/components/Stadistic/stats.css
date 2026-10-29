@@ -1,13 +1,11 @@
-/* =========================================
-   COMPONENTE: BANNER DE ESTADÍSTICAS
-   ========================================= */
+/* BANNER DE ESTADÍSTICAS */
 
 .stats-banner {
   width: 100%;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   background: linear-gradient(90deg, rgba(7, 59, 43, 0.9) 0%, rgba(3, 25, 18, 0.95) 100%);
   padding: 2.5rem 0;
-  /* Al quitar 'position: absolute', ahora fluye naturalmente dentro del Hero */
+  /* AL QUITAR 'POSITION: ABSOLUTE', AHORA FLUYE NATURALMENTE DENTRO DEL HERO */
   position: relative;
   z-index: 2;
 }
@@ -15,8 +13,8 @@
 .stats-banner-contenedor {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem; /* Padding para móviles */
-  /* CORRECCIÓN: Usamos display: grid y quitamos display: flex */
+  padding: 0 1.5rem; /* PADDING PARA MÓVILES */
+  /* CORRECCIÓN: USAMOS DISPLAY: GRID Y QUITAMOS DISPLAY: FLEX */
   display: flex; 
   gap: 2rem;
 }
@@ -41,4 +39,3 @@
   line-height: 1.4;
   max-width: 200px;
 }
-

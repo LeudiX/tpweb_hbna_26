@@ -61,7 +61,7 @@ export default function SuggestionModal({ isOpen, onClose }) {
               </div>
               
               <div className="form-grupo">
-                <label htmlFor="comentario">Comentario o sugerencia</label>
+                <label htmlFor="comentario">Comentario</label>
                 <textarea 
                   id="comentario" 
                   name="comentario" 

@@ -12,6 +12,7 @@ class Noticia(models.Model):
     # Apunta a Usuario (puede ser Admin o Editor)
     autor = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='noticias_creadas')
 
+    # Si la fecha que se apunta es la de hoy se lanza un error
     def clean(self):
         if self.fecha and self.fecha > timezone.now().date():
             raise ValidationError({'fecha': 'La fecha de la noticia no puede ser en el futuro.'})

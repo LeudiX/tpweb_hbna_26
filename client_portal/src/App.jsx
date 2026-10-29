@@ -17,7 +17,8 @@ function App() {
         {/* El asterisco (*) significa "cualquier otra ruta no definida arriba" */}
         <Route path="*" element={<NotFound />} />
       </Routes>
-
+       
+       {/* El footer está igualmente afuera para que aparezca en todas las páginas*/}
        <Footer />
     </BrowserRouter>
   );
