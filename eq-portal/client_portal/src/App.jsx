@@ -3,6 +3,8 @@ import Navbar from "./components/navbar/NavBar";
 import Footer from "./components/Footer/Footer"; 
 import Home from "./pages/home/Home";
 import NotFound from "./pages/error404/NotFound";
+import NoticiaDetalle from "./pages/noticias/NoticiaDetalle";
+
 
 function App() {
   return (
@@ -13,6 +15,9 @@ function App() {
       {/* Aquí es donde ocurre la magia: se intercambian los componentes según la URL */}
       <Routes>
         <Route path="/" element={<Home />} />
+
+        {/* Ruta para leer la noticia completa */}
+        <Route path="/noticias/:id" element={<NoticiaDetalle />} />
         
         {/* El asterisco (*) significa "cualquier otra ruta no definida arriba" */}
         <Route path="*" element={<NotFound />} />
