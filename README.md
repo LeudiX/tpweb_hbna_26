@@ -13,7 +13,7 @@
 - **`eq-fleet-mgmt:`** Target branch for Fleet Management Development Team
 - **`eq-geouci:`** Target branch for GEO UCI Portal Development Team
 - **`eq-portal:`** Target branch for FTI Portal Development Team
-- **`eq-sport-mgmt:`** Target branch for Sport Management Development Team
+- **`eq-sport-mgmt:`** Target branch for Fleet Management Development Team
 
 ## Tasks Names
 
