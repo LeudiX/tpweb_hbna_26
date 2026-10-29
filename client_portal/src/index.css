@@ -1,0 +1,47 @@
+/* INDEX.CSS */
+html {
+  /* PARA EL NAVEGAR SUAVE A LAS SECCIONES */
+  scroll-behavior: smooth;
+}
+
+/* RESET BÁSICO PARA QUE TODOS LOS NAVEGADORES SE VEAN IGUAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* ESTO ES VITAL: EL PADDING NO AUMENTA EL TAMAÑO DE LAS CAJAS */
+}
+
+/* VARIABLES GLOBALES (COLORES INSTITUCIONALES) */
+:root {
+  --color-primary: #0b6b4b;
+  --color-dark: #073b2b;
+  --color-light: #dcefa9;
+  --color-text: #10231e;
+  --color-bg: #f4f5f1;
+  --font-headings: Georgia, "Times New Roman", serif;
+  --font-body: Arial, Helvetica, sans-serif;
+}
+
+/* ESTILOS BASE PARA EL CUERPO */
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+
+  /* PARA QUE NO HAYA SCROLL HORIZONTAL */
+  overflow-x: hidden;
+}
+
+/* ESTILOS PARA ENLACES Y BOTONES */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}

@@ -1,0 +1,137 @@
+/* MODAL DE SUGERENCIAS */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(7, 59, 43, 0.8); /* Verde oscuro semitransparente */
+  backdrop-filter: blur(4px); /* Efecto vidrio esmerilado */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 1rem;
+}
+
+.modal-contenido {
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  animation: aparecer 0.3s ease-out;
+}
+
+/* Animación de aparición */
+@keyframes aparecer {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal-cerrar:hover {
+  color: var(--color-dark);
+}
+
+.modal-titulo {
+  font-family: var(--font-headings);
+  color: var(--color-dark);
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-descripcion {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-grupo label {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--color-dark);
+}
+
+.form-grupo input,
+.form-grupo textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-grupo input:focus,
+.form-grupo textarea:focus {
+  border-color: var(--color-primary);
+}
+
+.btn-enviar {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s;
+}
+
+.btn-enviar:hover {
+  background-color: var(--color-dark);
+}
+
+/* Mensaje de éxito, que aparece cuando se presiona el botón de envío */
+.mensaje-exito {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.icono-exito {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background-color: #d1fae5;
+  color: #059669;
+  font-size: 2rem;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.mensaje-exito h3 {
+  color: var(--color-dark);
+  margin-bottom: 0.5rem;
+}

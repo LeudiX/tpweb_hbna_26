@@ -1,0 +1,22 @@
+/* ICONO SOCIAL INDIVIDUAL */
+
+.social-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 0.4rem;
+  color: #a7f3d0; /* COLOR VERDE MENTA PARA EL ICONO */
+  font-size: 1.1rem; /* CONTROLA EL TAMAÑO DEL ICONO DE FONT AWESOME */
+  transition: background-color 0.3s, transform 0.2s, color 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* AL PASAR EL RATÓN, EL FONDO SE PONE VERDE Y EL ICONO BLANCO */
+.social-icon:hover {
+  background-color: var(--color-primary);
+  color: white; 
+  transform: translateY(-2px);
+}

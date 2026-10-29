@@ -1,0 +1,27 @@
+/* Estado inicial (Oculto y desplazado) */
+.scroll-reveal {
+  opacity: 0;
+  /* Usamos una curva de animación muy suave (cubic-bezier) típica de Apple */
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
+}
+
+/* Direcciones iniciales */
+.reveal-up { transform: translateY(40px); }
+.reveal-left { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
+.reveal-fade { transform: none; }
+
+/* Estado final (Visible y en su posición original) */
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Para que el contenedor de la animación no rompa el Grid */
+.scroll-reveal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
