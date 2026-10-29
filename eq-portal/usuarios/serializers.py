@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Administrador, Editor
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 class AdministradorSerializer(serializers.ModelSerializer):
     # Obligamos a que el campo password sea requerido y no se muestre al consultar (write_only)
@@ -45,3 +46,20 @@ class EditorSerializer(serializers.ModelSerializer):
         
         editor.save()
         return editor
+
+class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+        
+        # Agregamos datos personalizados al token
+        token['username'] = user.username
+        # Verificamos si es administrador o editor
+        if hasattr(user, 'administrador'):
+            token['rol'] = 'admin'
+        elif hasattr(user, 'editor'):
+            token['rol'] = 'editor'
+        else:
+            token['rol'] = 'desconocido' # Por si es un superusuario base
+
+        return token
