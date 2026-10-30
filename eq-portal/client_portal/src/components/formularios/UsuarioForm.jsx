@@ -9,8 +9,8 @@ export default function UsuarioForm({ vistaActual, onGuardar }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onGuardar(formData); // Le pasamos los datos al padre
-    setFormData({ username: "", email: "", ci: "", password: "" }); // Limpiamos
+    onGuardar(formData); // Le pasamos los datos a DashBoadr
+    setFormData({ username: "", email: "", ci: "", password: "" }); // Limpiamos los datos del registro
   };
 
   const esEditor = vistaActual === 'editores';
