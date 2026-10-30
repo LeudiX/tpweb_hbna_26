@@ -4,7 +4,7 @@ import apiClient from "../../services/apiClient";
 import "./login.css";
 
 export default function Login() {
-  const [isLogin, setIsLogin] = useState(true); // Toggle entre Login y Registro
+  const [isLogin, setIsLogin] = useState(true); // Para cmabiar entre Login y Registro
   const [formData, setFormData] = useState({ username: "", password: "", email: "", ci: "" });
   const [error, setError] = useState("");
   const [cargando, setCargando] = useState(false);
@@ -46,7 +46,7 @@ export default function Login() {
       <div className="login-card">
         <div className="login-header">
           <span className="login-logo">🐊</span>
-          <h2>Portal FTI</h2>
+          <h2>Portal de la Facultad de Tecnologías Interactivas</h2>
           <p>{isLogin ? "Accede a tu cuenta" : "Regístrate como Editor"}</p>
         </div>
 

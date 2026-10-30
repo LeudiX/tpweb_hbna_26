@@ -8,7 +8,7 @@ export default function Sidebar() {
 
   return (
     <aside className="sidebar">
-      {/* Logo / Marca */}
+      {/* Logo */}
       <div className="sidebar-logo">
         <span className="sidebar-logo-icono">🐊</span>
         <span className="sidebar-logo-texto">FTI Admin</span>
@@ -17,12 +17,13 @@ export default function Sidebar() {
       {/* Enlaces de Navegación */}
       <nav className="sidebar-nav">
         <Link to="/dashboard" className="sidebar-link activo">
-          📊 Panel de Control
+          Panel Administrativo
         </Link>
+
         <Link to="/" className="sidebar-link">
-          🌐 Ir al Portal
+          Ir a la página principal
         </Link>
-        {/* Aquí podrías agregar más enlaces en el futuro, como "Mis Noticias", "Eventos", etc. */}
+        
       </nav>
 
       {/* Perfil del Usuario y Logout */}
@@ -34,6 +35,7 @@ export default function Sidebar() {
             <span className="rol">{user?.rol === 'admin' ? 'Administrador' : 'Editor'}</span>
           </div>
         </div>
+        
         <button className="btn-logout-sidebar" onClick={() => { logout(); navigate('/login'); }}>
           Cerrar Sesión
         </button>

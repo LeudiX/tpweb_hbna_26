@@ -17,30 +17,37 @@ const RutaProtegida = ({ children }) => {
   return user ? children : <Navigate to="/login" />;
 };
 
-// 1. Creamos un sub-componente para poder usar useLocation dentro del Router
+// Creamos un sub-componente para poder usar useLocation dentro del Router
 function AppContent() {
   const location = useLocation();
 
-  // 2. Definimos las rutas donde NO queremos que salga el Navbar ni el Footer
-  // Usamos startsWith para que también oculte el navbar en /dashboard/loquesea
+  // Definimos las rutas donde no queremos que se muestre el Navbar ni el Footer
+  // Usamos startsWith para que también oculte el navbar en /dashboard/loquesea, es decir, la ruta que comienza por dashboard o login
   const ocultarLayout = location.pathname.startsWith('/dashboard') || location.pathname === '/login';
 
   return (
     <>
-      {/* Solo mostramos el Navbar si NO estamos en el dashboard ni en el login */}
+      {/* Solo mostramos el Navbar si no estamos en el dashboard ni en el login */}
       {!ocultarLayout && <Navbar />}
 
       <Routes>
+
+        {/* path dirección de la routa y element sería la page a mostrar */}
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         
+        {/* Ruta protegida para que solo los usuarios con permisos puedan entrar */}
         <Route path="/dashboard" element={<RutaProtegida><Dashboard /></RutaProtegida>} />
         <Route path="/noticias/crear" element={<RutaProtegida><NoticiaForm /></RutaProtegida>} />
+
+        {/* Ruta para cuando den click en leer más sobre una noticia, tomamos el id de la url */}
         <Route path="/noticias/:id" element={<NoticiaDetalle />} />
+
+        {/* Pagina de error 404 cuando se ingresa una ruta que no ha sido registrada */}
         <Route path="*" element={<NotFound />} />
       </Routes>
 
-      {/* Solo mostramos el Footer si NO estamos en el dashboard ni en el login */}
+      {/* Solo mostramos el Footer si no estamos en el dashboard ni en el login */}
       {!ocultarLayout && <Footer />}
     </>
   );

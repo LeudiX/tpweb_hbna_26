@@ -3,9 +3,9 @@ import UsuarioForm from "../../components/formularios/UsuarioForm";
 import UsuariosTable from "../../components/tablas/tablaUsuarios/tablaUsuario";
 import "./dashboard.css";
 import Sidebar from "../dashboard/SideBar";
-
 import { useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
+
 import { 
   obtenerEditores, crearEditor, eliminarEditor,
   obtenerAdministradores, crearAdministrador, eliminarAdministrador
@@ -77,7 +77,7 @@ export default function Dashboard() {
           
           <header className="dashboard-header">
             <p className="dashboard-eyebrow">Administración</p>
-            <h1 className="dashboard-title">Panel de Control</h1>
+            <h1 className="dashboard-title">Panel de Administración</h1>
             <p className="dashboard-subtitle">
               Bienvenido de nuevo, <strong>{user?.username || 'Usuario'}</strong>.
             </p>
