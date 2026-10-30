@@ -1,0 +1,116 @@
+/* SIDEBAR (BARRA LATERAL) */
+.sidebar {
+  width: 260px;
+  background-color: var(--color-dark); /* Verde oscuro */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  padding: 1.5rem 1rem;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+
+/* Logo */
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-headings);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  padding-left: 0.5rem;
+}
+
+.sidebar-logo-icono {
+  font-size: 1.8rem;
+}
+
+/* Navegación */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-grow: 1;
+}
+
+.sidebar-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.sidebar-link:hover,
+.sidebar-link.activo {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.sidebar-link.activo {
+  border-left: 4px solid var(--color-light);
+}
+
+/* Footer del Sidebar (Usuario) */
+.sidebar-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar-usuario {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info .nombre {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.info .rol {
+  font-size: 0.75rem;
+  color: var(--color-light);
+}
+
+.btn-logout-sidebar {
+  background: rgba(220, 38, 38, 0.1);
+  color: #f87171;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  padding: 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-logout-sidebar:hover {
+  background: #dc2626;
+  color: white;
+}

@@ -1,0 +1,38 @@
+/* =========================================
+   COMPONENTE: TABLA DE AGENDA
+   ========================================= */
+
+.agenda-table-wrapper {
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #0f172a;
+  margin-top: 1rem;
+}
+
+.evento-item-contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.evento-titulo {
+  font-weight: 600;
+  color: white;
+  font-size: 0.95rem;
+}
+
+.evento-lugar,
+.evento-fecha {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+/* Ajustes para que la tabla no se desborde en móviles */
+.agenda-table-wrapper .rdt_Table {
+  min-width: 600px;
+}
+
+.agenda-table-wrapper .rdt_TableHeadRow {
+  border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+}

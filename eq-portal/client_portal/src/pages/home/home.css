@@ -1,0 +1,393 @@
+/* SECCIÓN HERO (MOBILE-FIRST) */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* CENTRA EL TEXTO VERTICALMENTE */
+  
+  /* QUITAMOS EL PADDING LATERAL PARA QUE EL FONDO TOQUE LOS BORDES */
+  padding: 6rem 0; 
+  
+  background-image: url('https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1800&q=90');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-fondo-oscuro {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(7, 59, 43, 0.9) 0%, rgba(7, 59, 43, 0.4) 100%);
+  z-index: 1;
+}
+
+.hero-contenido {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 800px;
+  color: white;
+  /* EL PADDING VA AQUÍ PARA QUE EL TEXTO NO SE PEGUE A LOS BORDES EN MÓVIL */
+  padding: 0 1.5rem; 
+}
+
+.hero-subtitulo {
+  color: var(--color-light);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.hero-titulo {
+  font-family: var(--font-headings);
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.hero-descripcion {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-boton {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  padding: 1rem 2rem;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 4px;
+  transition: transform 0.2s ease, background-color 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.hero-boton:hover {
+  background-color: white;
+  transform: translateY(-2px);
+}
+
+/* SECCIÓN NOTICIAS */
+.seccion-noticias {
+  padding: 5rem 1.5rem;
+  background: linear-gradient(135deg, #dcefa9 0%, #92b89e 100%);
+}
+
+.noticias-contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.noticias-encabezado {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.etiqueta-seccion {
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.noticias-titulo {
+  font-family: var(--font-headings);
+  font-size: 2.8rem;
+  color: var(--color-dark);
+  line-height: 1;
+}
+
+.noticias-cuadricula {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* SECCIÓN LA FACULTAD (INTRO) */
+.seccion-intro {
+  background-color: var(--color-bg);
+  padding: 5rem 1.5rem;
+}
+
+.intro-contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.intro-texto-principal {
+  flex: 7;
+}
+
+.intro-titulo {
+  font-family: var(--font-headings);
+  font-size: clamp(2.8rem, 5.5vw, 4.7rem);
+  line-height: 1.05;
+  color: var(--color-dark);
+  letter-spacing: -0.03em;
+}
+
+.intro-titulo em {
+  color: var(--color-primary);
+  font-style: italic;
+}
+
+.intro-texto-secundario {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.intro-descripcion {
+  color: #607269;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  max-width: 35rem;
+}
+
+.enlace-verde {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.enlace-verde:hover {
+  color: var(--color-dark);
+}
+
+.enlace-verde svg {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.enlace-verde:hover svg {
+  transform: translateX(4px);
+}
+
+/* SECCIÓN HISTORIA / COMUNIDAD */
+.seccion-historia {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 4rem 1.5rem;
+}
+
+.historia-contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
+.historia-texto {
+  flex: 1;
+  width: 100%;
+}
+
+.etiqueta-seccion-clara {
+  color: var(--color-light);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+}
+
+.historia-titulo {
+  font-family: var(--font-headings);
+  font-size: clamp(2.8rem, 5vw, 4.6rem);
+  line-height: 0.98;
+  margin-bottom: 1.2rem;
+  max-width: 30rem;
+}
+
+.historia-descripcion {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  max-width: 29rem;
+  margin-bottom: 1.5rem;
+}
+
+.enlace-claro {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-light);
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.enlace-claro svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.historia-imagen-contenedor {
+  flex: 1;
+  width: 100%;
+}
+
+.historia-figura {
+  position: relative;
+  margin: 0;
+  min-height: 20rem;
+}
+
+.historia-imagen {
+  width: 100%;
+  height: 100%;
+  min-height: 20rem;
+  object-fit: cover;
+  filter: saturate(0.8);
+}
+
+/* MEDIA QUERIES (ESCRITORIO) */
+@media (min-width: 768px) {
+  /* HERO */
+  .hero {
+    padding: 8rem 0; 
+  }
+  .hero-contenido {
+    padding: 0 4rem; 
+  }
+
+  /* NOTICIAS */
+  .seccion-noticias {
+    padding: 6rem 2rem;
+  }
+  .noticias-encabezado {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .noticias-titulo {
+    font-size: 3.5rem;
+  }
+  .noticias-cuadricula {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+  /* CONTROLES DE PAGINACIÓN (MOBILE-FIRST) */
+  .paginacion-controles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; /* ESPACIO ENTRE BOTONES EN MÓVIL */
+    margin-top: 2.5rem; /* SEPARACIÓN DE LAS TARJETAS DE ARRIBA */
+    padding: 0 1rem;
+  }
+
+  .btn-pagina {
+    background-color: var(--color-primary); /* EL VERDE INSTITUCIONAL */
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem; /* TAMAÑO TÁCTIL CÓMODO PARA MÓVIL */
+    border-radius: 8px; /* BORDES REDONDEADOS MODERNOS */
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  /* ESTADO DE LOS BOTONES CUANDO ESTÁN DESHABILITADOS */
+  .btn-pagina:disabled {
+    background-color: #cbd5e1; /* GRIS CLARO PARA INDICAR QUE NO SE PUEDE HACER CLIC */
+    color: #94a3b8;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  .pagina-texto {
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--color-dark);
+    font-size: 0.9rem;
+  }
+
+  /* ESCRITORIO (A PARTIR DE 768PX) */
+  @media (min-width: 768px) {
+    .paginacion-controles {
+      gap: 1.5rem; /* MÁS ESPACIO ENTRE ELEMENTOS EN PC */
+      margin-top: 3.5rem;
+    }
+
+    .btn-pagina {
+      padding: 0.8rem 1.5rem; /* BOTONES UN POCO MÁS GRANDES */
+      font-size: 1rem;
+    }
+
+    /* EFECTO HOVER SOLO EN DISPOSITIVOS CON RATÓN (PC) */
+    .btn-pagina:hover:not(:disabled) {
+      background-color: var(--color-dark); /* SE VUELVE MÁS OSCURO */
+      transform: translateY(-2px); /* PEQUEÑO SALTO */
+      box-shadow: 0 4px 10px rgba(11, 107, 75, 0.3);
+    }
+
+    .pagina-texto {
+      font-size: 1rem;
+    }
+  }
+
+  /* LA FACULTAD */
+  .seccion-intro {
+    padding: 8rem 2rem;
+  }
+  .intro-contenedor {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 4rem;
+  }
+  .intro-titulo {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+  }
+
+  /* HISTORIA */
+  .seccion-historia {
+    padding: 6rem 2rem;
+  }
+  .historia-contenedor {
+    flex-direction: row;
+    gap: 4rem;
+  }
+  .historia-texto {
+    flex: 5; 
+  }
+  .historia-imagen-contenedor {
+    flex: 7;
+  }
+  .historia-figura, .historia-imagen {
+    min-height: 26rem;
+    height: 26rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .noticias-cuadricula {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+}
