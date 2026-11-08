@@ -33,6 +33,8 @@ INSTALLED_APPS = [
     'rest_framework', 
     'usuarios',
     'noticias',
+    'stats',
+    'institucional',
 ]
 
 MIDDLEWARE = [
@@ -143,8 +145,11 @@ AUTH_USER_MODEL = 'usuarios.Usuario'
 # Además de del paginador por defecto que trae Rest Fremwork
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
+        # Clase por defecto para usar Simple JWT para la autenticación
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
+
+    # Para que todas las rutas sean protegidas y tenga que usar Token
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
