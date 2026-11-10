@@ -1,9 +1,16 @@
 import { useState, useEffect } from "react";
+
+// Componentes
 import UsuariosTable from "../../components/tablas/tablaUsuarios/tablaUsuario";
+import UsuarioModal from "../../components/modals/UsuarioModal";
+
+// Servicios
 import { 
   obtenerEditores, crearEditor, eliminarEditor, actualizarEditor,
   obtenerAdministradores, crearAdministrador, eliminarAdministrador, actualizarAdministrador
 } from "../../services/usuarioService";
+
+// Contextos
 import { useAuth } from "../../context/AuthContext";
 
 export default function UsuariosPage({ tipo }) {
@@ -79,7 +86,6 @@ export default function UsuariosPage({ tipo }) {
         cargando={cargando} 
       />
 
-      {/* 
       <UsuarioModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
@@ -87,7 +93,7 @@ export default function UsuariosPage({ tipo }) {
         itemEditando={itemEditando}
         tipo={tipo}
       /> 
-      */}
+
     </div>
   );
 }
