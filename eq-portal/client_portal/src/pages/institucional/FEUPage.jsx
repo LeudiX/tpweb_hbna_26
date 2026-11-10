@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { obtenerFEU } from "../../services/institucionalService";
+import { obtenerFeu } from "../../services/institucionalService";
 import InstitutionalHero from "../../components/institucional/InstitutionalHero";
 import InstitutionalIntro from "../../components/institucional/InstitucionalIntro";
 import "../../components/institucional/institucional.css";
@@ -8,7 +8,7 @@ export default function FEUPage() {
   const [miembros, setMiembros] = useState([]);
 
   useEffect(() => {
-    obtenerFEU().then(res => setMiembros(res)).catch(console.error);
+    obtenerFeu().then(res => setMiembros(res)).catch(console.error);
   }, []);
 
   return (

@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+
+// Estilos
 import "./home.css";
+
+// Componetes
 import NoticiaCard from "../../components/Noticia/NoticiaCard";
 import ScrollApple from "../../components/ScrollApple/ScrollApple";
-// import StatsBanner from "../../components/Stadistic/Stats";
 import Extension from "../../components/Extensión/Extension";
 import { obtenerNoticias } from "../../services/noticiaService";
 
@@ -98,7 +103,7 @@ export default function Home() {
               </p>
               <button className="hero-boton">Conoce la facultad</button>
             </div>
-            {/* <StatsBanner estadisticas={estadisticas} /> */}
+
           </section>
 
         {/* Scroll Apple para aplicar el componente de la transición parecida a Apple */}
@@ -120,28 +125,30 @@ export default function Home() {
               </div>
             </div>
 
-            {/* CONTROLES DE PAGINACIÓN que ofrece Django Rest pro defecto*/}
-            {!cargando && !error && (
-              <div className="paginacion-controles">
-                <button 
-                  className="btn-pagina"
-                  disabled={!hayAnterior} 
-                  onClick={() => setPaginaActual(paginaActual - 1)}
-                >
-                  ← Anterior
-                </button>
-
-                <span className="pagina-texto">Página {paginaActual}</span>
-
-                <button 
-                  className="btn-pagina"
-                  disabled={!haySiguiente} 
-                  onClick={() => setPaginaActual(paginaActual + 1)}
-                >
-                  Siguiente →
-                </button>
-              </div>
-            )}
+            {/* CONTROLES DE PAGINACIÓN que ofrece Django Rest por defecto*/}
+              {!cargando && !error && (
+                <div className="paginacion-controles">
+                  <button 
+                    className="btn-pagina"
+                    disabled={!hayAnterior} 
+                    onClick={() => setPaginaActual(paginaActual - 1)}
+                    aria-label="Página anterior"
+                  >
+                    <FontAwesomeIcon icon={faChevronLeft} />
+                  </button>
+              
+                  <span className="pagina-texto">Página {paginaActual}</span>
+              
+                  <button 
+                    className="btn-pagina"
+                    disabled={!haySiguiente} 
+                    onClick={() => setPaginaActual(paginaActual + 1)}
+                    aria-label="Página siguiente"
+                  >
+                    <FontAwesomeIcon icon={faChevronRight} />
+                  </button>
+                </div>
+              )}
           </section>
         </ScrollApple>    
 
@@ -168,8 +175,8 @@ export default function Home() {
                 <p className="intro-descripcion">
                   Un espacio para aprender, investigar y desarrollar soluciones digitales con impacto. Conoce los centros de desarrollo y proyectos que forman a nuestra facultad.
                 </p>
-                <a className="enlace-verde" href="#extension">
-                  Conoce nuestras centros de desarrollo <IconoFlecha />
+                <a className="enlace-verde" href="centro">
+                  Conoce nuestros centros de desarrollo <IconoFlecha />
                 </a>
               </div>
             </ScrollApple>
@@ -188,7 +195,7 @@ export default function Home() {
                   <p className="historia-descripcion">
                     Estudiantes y docentes colaboran para convertir preguntas en proyectos, conocimiento y oportunidades.
                   </p>
-                  <a className="enlace-claro" href="#acerca">
+                  <a className="enlace-claro" href="consejo-direccion">
                     Ver los ejecutivos de la FTI <IconoFlecha />
                   </a>
                 </div>

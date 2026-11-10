@@ -11,31 +11,51 @@ const adaptarFoto = (miembro) => {
   return { ...miembro, foto: urlFoto };
 };
 
-export const obtenerDepartamentos = async () => {
-  const res = await apiClient.get('/institucional/departamentos/');
-  return res.data.results ? res.data.results : res.data;
-};
-
+// Centros
 export const obtenerCentros = async () => {
   const res = await apiClient.get('/institucional/centros/');
   return res.data.results ? res.data.results : res.data;
 };
 
-export const obtenerConsejo = async () => {
-  const res = await apiClient.get('/institucional/consejo/');
-  const lista = res.data.results ? res.data.results : res.data;
-  return lista.map(adaptarFoto);
+export const crearCentro = async (datos) => {
+  const res = await apiClient.post('/institucional/centros/', datos);
+  return res.data;
+};
+export const actualizarCentro = async (id, datos) => {
+  const res = await apiClient.put(`/institucional/centros/${id}/`, datos);
+  return res.data;
+};
+export const eliminarCentro = async (id) => {
+  await apiClient.delete(`/institucional/centros/${id}/`);
 };
 
-export const obtenerFEU = async () => {
+// Feu
+export const obtenerFeu = async () => {
   const res = await apiClient.get('/institucional/feu/');
   return res.data.results ? res.data.results : res.data;
+};
+
+export const crearFeu = async (datos) => {
+  const res = await apiClient.post('/institucional/feu/', datos);
+  return res.data;
+};
+export const actualizarFeu = async (id, datos) => {
+  const res = await apiClient.put(`/institucional/feu/${id}/`, datos);
+  return res.data;
+};
+export const eliminarFeu = async (id) => {
+  await apiClient.delete(`/institucional/feu/${id}/`);
 };
 
 // Departamentos
 export const crearDepartamento = async (datos) => {
   const res = await apiClient.post('/institucional/departamentos/', datos);
   return res.data;
+};
+
+export const obtenerDepartamentos = async () => {
+  const res = await apiClient.get('/institucional/departamentos/');
+  return res.data.results ? res.data.results : res.data;
 };
 
 export const actualizarDepartamento = async (id, datos) => {
@@ -76,4 +96,10 @@ export const actualizarConsejo = async (id, datos, imagenFile) => {
 
 export const eliminarConsejo = async (id) => {
   await apiClient.delete(`/institucional/consejo/${id}/`);
+};
+
+export const obtenerConsejo = async () => {
+  const res = await apiClient.get('/institucional/consejo/');
+  const lista = res.data.results ? res.data.results : res.data;
+  return lista.map(adaptarFoto);
 };

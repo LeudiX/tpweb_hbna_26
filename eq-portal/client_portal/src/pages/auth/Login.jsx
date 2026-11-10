@@ -12,6 +12,9 @@ import { useAuth } from "../../context/AuthContext";
 import apiClient from "../../services/apiClient";
 import "./login.css";
 
+// Componentes
+import Logo from "../../components/logo/Logo";
+
 import PasswordInput from "../../pages/auth/PasswordInput";
 
 export default function Login() {
@@ -36,7 +39,8 @@ export default function Login() {
     reset, // Para limpiar el formulario al cambiar de modo
     setError // Para inyectar errores manuales (ej. del backend)
   } = useForm({
-    resolver: zodResolver(schemaActual), // Conecta hook form con zod en dependencia del schema seleccionado
+    resolver: zodResolver(schemaActual), // Conecta hook form con zod en dependencia del schema seleccionado (registro o autenticación)
+    mode: 'onChange', // Para mientras cambie algo en el input poder realizar una operación
   });
 
   // Función asincrona que lleva la info al backend si todo es correcto
@@ -97,7 +101,7 @@ export default function Login() {
     <div className="login-page">
       <div className="login-card">
         <div className="login-header">
-          <span className="login-logo">🐊</span>
+            <Logo size={65} />
           <h2>Portal FTI</h2>
           <p>{isLogin ? "Accede a tu cuenta" : "Regístrate como Editor"}</p>
         </div>
@@ -111,7 +115,11 @@ export default function Login() {
           <div className="form-grupo">
             <label>Usuario</label>
             {/* Usamos {...register para guardar el input por id */}
-            <input type="text" {...register("username")} />
+            <input type="text" 
+              {...register("username")} 
+              placeholder="Ej. jmugarte"
+              className={`form-control ${errors.username ? 'input-error' : ''}`}
+            />
             {/* Mostramos el error si Zod detecta algo */}
             {errors.username && <span className="error-text">{errors.username.message}</span>}
           </div>
@@ -121,12 +129,20 @@ export default function Login() {
             <>
               <div className="form-grupo">
                 <label>Correo Electrónico</label>
-                <input type="email" {...register("email")} />
+                <input type="email" 
+                  {...register("email")} 
+                  placeholder="ejemplo@uci.cu"
+                  className={`form-control ${errors.email ? 'input-error' : ''}`}
+                />
                 {errors.email && <span className="error-text">{errors.email.message}</span>}
               </div>
               <div className="form-grupo">
                 <label>Carnet de Identidad (CI)</label>
-                <input type="text" {...register("ci")} />
+                <input type="text" 
+                  {...register("ci")} 
+                  placeholder="11 dígitos"
+                  className={`form-control ${errors.ci ? 'input-error' : ''}`}
+                />
                 {errors.ci && <span className="error-text">{errors.ci.message}</span>}
               </div>
             </>
@@ -139,6 +155,7 @@ export default function Login() {
               register={register} 
               name="password" 
               error={errors.password} 
+              placeholder="Mín. 8 caract., 1 Mayús., 1 Núm., 1 Símbolo"
             />
           </div>
           
