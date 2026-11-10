@@ -114,6 +114,55 @@
   gap: 2rem;
 }
 
+/* Paginadores */
+.paginacion-controles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem; /* Menos espacio en móviles */
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.btn-pagina {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;   /* Tamaño táctil mínimo recomendado */
+  height: 44px;
+  background-color: #ffffff;
+  color: var(--color-dark);
+  border: 1px solid #e2e8f0;
+  border-radius: 50%; /* Redondo */
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra más sutil en móvil */
+  transition: all 0.3s ease;
+}
+
+.btn-pagina:hover:not(:disabled) {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(11, 107, 75, 0.2);
+}
+
+.btn-pagina:disabled {
+  background-color: #f1f5f9;
+  color: #cbd5e1;
+  border-color: #e2e8f0;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.pagina-texto {
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-dark);
+  font-size: 0.9rem; /* Texto un poco más pequeño en móvil */
+}
+
 /* SECCIÓN LA FACULTAD (INTRO) */
 .seccion-intro {
   background-color: var(--color-bg);
@@ -290,36 +339,6 @@
     grid-template-columns: repeat(2, 1fr); 
   }
 
-  /* CONTROLES DE PAGINACIÓN (MOBILE-FIRST) */
-  .paginacion-controles {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem; /* ESPACIO ENTRE BOTONES EN MÓVIL */
-    margin-top: 2.5rem; /* SEPARACIÓN DE LAS TARJETAS DE ARRIBA */
-    padding: 0 1rem;
-  }
-
-  .btn-pagina {
-    background-color: var(--color-primary); /* EL VERDE INSTITUCIONAL */
-    color: white;
-    border: none;
-    padding: 0.6rem 1rem; /* TAMAÑO TÁCTIL CÓMODO PARA MÓVIL */
-    border-radius: 8px; /* BORDES REDONDEADOS MODERNOS */
-    font-weight: 600;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  /* ESTADO DE LOS BOTONES CUANDO ESTÁN DESHABILITADOS */
-  .btn-pagina:disabled {
-    background-color: #cbd5e1; /* GRIS CLARO PARA INDICAR QUE NO SE PUEDE HACER CLIC */
-    color: #94a3b8;
-    cursor: not-allowed;
-    opacity: 0.7;
-  }
-
   .pagina-texto {
     font-family: var(--font-body);
     font-weight: 600;
@@ -327,28 +346,21 @@
     font-size: 0.9rem;
   }
 
-  /* ESCRITORIO (A PARTIR DE 768PX) */
-  @media (min-width: 768px) {
-    .paginacion-controles {
-      gap: 1.5rem; /* MÁS ESPACIO ENTRE ELEMENTOS EN PC */
-      margin-top: 3.5rem;
-    }
+  /* Paginadores */
+  .paginacion-controles {
+      gap: 1.5rem; /* Más separación en PC */
+      margin-top: 3rem;
+  }
 
-    .btn-pagina {
-      padding: 0.8rem 1.5rem; /* BOTONES UN POCO MÁS GRANDES */
-      font-size: 1rem;
-    }
+  .btn-pagina {
+    width: 48px; /* Botones un poco más grandes si quieres */
+    height: 48px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
 
-    /* EFECTO HOVER SOLO EN DISPOSITIVOS CON RATÓN (PC) */
-    .btn-pagina:hover:not(:disabled) {
-      background-color: var(--color-dark); /* SE VUELVE MÁS OSCURO */
-      transform: translateY(-2px); /* PEQUEÑO SALTO */
-      box-shadow: 0 4px 10px rgba(11, 107, 75, 0.3);
-    }
-
-    .pagina-texto {
-      font-size: 1rem;
-    }
+  .pagina-texto {
+    font-size: 1.05rem; /* Texto más grande y legible en PC */
   }
 
   /* LA FACULTAD */

@@ -8,9 +8,9 @@ import "./footer.css";
 const columnaQuienesSomos = {
   titulo: "Quiénes somos",
   items: [
-    { texto: "Decanato FTI", url: "#!" },
+    { texto: "Departamentos", url: "departamentos" },
     { texto: "Claustro Docente", url: "consejo-direccion" },
-    { texto: "Consejo Científico", url: "#!" },
+    { texto: "Centros de desarrollo", url: "centro" },
     { texto: "Federación Estudiantil (FEU)", url: "estudiantes-feu" },
   ]
 };

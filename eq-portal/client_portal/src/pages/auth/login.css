@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, var(--color-bg) 0%, #dcefa9 100%);
+  background: #dfdfdf;;
   padding: 2rem;
 }
 
@@ -95,4 +95,32 @@
   margin-top: 0.3rem;
   display: block;
   font-weight: 500;
+}
+
+/* Borde rojo cuando hay error */
+.form-control.input-error {
+  border-color: #dc2626 !important;
+  background-color: #fef2f2;
+}
+
+/* Borde verde cuando es válido */
+/* (Usamos :not(.input-error) y :not(:placeholder-shown) para que no se pinte verde si está vacío) */
+.form-control:not(.input-error):not(:placeholder-shown) {
+  border-color: #059669;
+  background-color: #f0fdf4;
+}
+
+/* Estilo para el texto de ayuda del error */
+.error-text {
+  color: #dc2626;
+  font-size: 0.75rem;
+  margin-top: 0.3rem;
+  display: block;
+  font-weight: 500;
+}
+
+/* Un pequeño efecto para el placeholder para que se vea más sutil */
+.form-control::placeholder {
+  color: #94a3b8;
+  font-size: 0.85rem;
 }

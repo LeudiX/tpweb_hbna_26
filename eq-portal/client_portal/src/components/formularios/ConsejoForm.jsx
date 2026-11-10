@@ -41,7 +41,7 @@ export default function ConsejoForm({ onGuardar, itemEditando }) {
         <label>Foto de Perfil</label>
         <input type="file" accept="image/*" onChange={(e) => setFoto(e.target.files[0])} className="form-control" />
       </div>
-      <button type="submit" className="btn-success" style={{ marginTop: '1rem' }}>
+      <button type="submit" className="btn-success" style={{ marginTop: '1rem', width: "100%" }}>
         {itemEditando ? "Guardar Cambios" : "Agregar Miembro"}
       </button>
     </form>

@@ -23,6 +23,7 @@ export default function Sidebar({vistaActual, setVistaActual}) {
   const [openUsers, setOpenUsers] = useState(false);
   const navigate = useNavigate();
   const [openInstitucional, setOpenInstitucional] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
   return (
     <aside className="sidebar">
@@ -41,16 +42,22 @@ export default function Sidebar({vistaActual, setVistaActual}) {
           Estadísitcas
         </NavLink>
 
-        {/* Usuarios (Solo Admin) */}
+        {/* Solo si el usuario tiene rol administrador */}
         {user?.rol === 'admin' && (
           <div className="sidebar-dropdown-container">
-            <button className="sidebar-link" onClick={() => setOpenUsers(!openUsers)}>
+            <button 
+              className="sidebar-link" 
+              // Si ya está abierto 'users', lo cierra (null). Si no, lo abre ('users')
+              onClick={() => setActiveDropdown(activeDropdown === 'users' ? null : 'users')}
+            >
               <FontAwesomeIcon icon={faUsers} className="sidebar-icon" />
               Usuarios
-              <FontAwesomeIcon icon={openUsers ? faChevronUp : faChevronDown} className="sidebar-chevron" />
+              {/* Cambia el icono dependiendo de si está activo */}
+              <FontAwesomeIcon icon={activeDropdown === 'users' ? faChevronUp : faChevronDown} className="sidebar-chevron" />
             </button>
-            
-            {openUsers && (
+
+            {/* Solo se muestra si el estado es 'users' */}
+            {activeDropdown === 'users' && (
               <div className="sidebar-dropdown-menu">
                 <NavLink to="/dashboard/usuarios/editores" className={({ isActive }) => `sidebar-sublink ${isActive ? 'activo-sub' : ''}`}>
                   Editores
@@ -75,25 +82,36 @@ export default function Sidebar({vistaActual, setVistaActual}) {
           Eventos
         </NavLink> 
 
-        <div className="sidebar-dropdown-container">
-        <button className="sidebar-link" onClick={() => setOpenInstitucional(!openInstitucional)}>
-          <FontAwesomeIcon icon={faUniversity} className="sidebar-icon" />
-          Institucional
-          <FontAwesomeIcon icon={openInstitucional ? faChevronUp : faChevronDown} className="sidebar-chevron" />
-        </button>
+        {/* Institucional (Solo Admin) */}
+        {user?.rol === 'admin' && (
+          <div className="sidebar-dropdown-container">
+            <button 
+              className="sidebar-link" 
+              onClick={() => setActiveDropdown(activeDropdown === 'institucional' ? null : 'institucional')}
+            >
+              <FontAwesomeIcon icon={faUniversity} className="sidebar-icon" />
+              Institucional
+              <FontAwesomeIcon icon={activeDropdown === 'institucional' ? faChevronUp : faChevronDown} className="sidebar-chevron" />
+            </button>
 
-        {openInstitucional && (
-          <div className="sidebar-dropdown-menu">
-            <NavLink to="/dashboard/institucional/departamentos" className={({ isActive }) => `sidebar-sublink ${isActive ? 'activo-sub' : ''}`}>
-              Departamentos
-            </NavLink>
-            <NavLink to="/dashboard/institucional/consejo" className={({ isActive }) => `sidebar-sublink ${isActive ? 'activo-sub' : ''}`}>
-              Consejo de Dirección
-            </NavLink>
-            {/* Aquí agregarás Centros y FEU cuando las crees */}
+            {activeDropdown === 'institucional' && (
+              <div className="sidebar-dropdown-menu">
+                <NavLink to="/dashboard/institucional/departamentos" className={({ isActive }) => `sidebar-sublink ${isActive ? 'activo-sub' : ''}`}>
+                  Departamentos
+                </NavLink>
+                <NavLink to="/dashboard/institucional/centro" className={({ isActive }) => `sidebar-sublink ${isActive ? 'activo-sub' : ''}`}>
+                  Centros de Desarrollo
+                </NavLink>
+                <NavLink to="/dashboard/institucional/consejo" className={({ isActive }) => `sidebar-sublink ${isActive ? 'activo-sub' : ''}`}>
+                  Consejo de Dirección
+                </NavLink>
+                <NavLink to="/dashboard/institucional/feu" className={({ isActive }) => `sidebar-sublink ${isActive ? 'activo-sub' : ''}`}>
+                  Miembros FEU
+                </NavLink>
+              </div>
+            )}
           </div>
         )}
-      </div>
 
       </nav>
 
