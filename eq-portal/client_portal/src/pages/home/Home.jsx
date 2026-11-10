@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./home.css";
+import { Link } from "react-router-dom";
 import NoticiaCard from "../../components/Noticia/NoticiaCard";
 import ScrollApple from "../../components/ScrollApple/ScrollApple";
 // import StatsBanner from "../../components/Stadistic/Stats";
@@ -188,9 +189,10 @@ export default function Home() {
                   <p className="historia-descripcion">
                     Estudiantes y docentes colaboran para convertir preguntas en proyectos, conocimiento y oportunidades.
                   </p>
-                  <a className="enlace-claro" href="#acerca">
+                   
+                  <Link className="enlace-claro" to="/consejo-direccion">  
                     Ver los ejecutivos de la FTI <IconoFlecha />
-                  </a>
+                  </Link>
                 </div>
 
                 {/* Columna Derecha */}
