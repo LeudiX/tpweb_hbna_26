@@ -67,6 +67,11 @@ export const eliminarDepartamento = async (id) => {
   await apiClient.delete(`/institucional/departamentos/${id}/`);
 };
 
+export const eliminarDepartamentosMasivo = async (ids) => {
+  const res = await apiClient.post('/institucional/departamentos/bulk-delete/', { ids });
+  return res.data;
+};
+
 // Consejo
 export const crearConsejo = async (datos, imagenFile) => {
   const formData = new FormData();

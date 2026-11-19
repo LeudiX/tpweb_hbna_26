@@ -21,6 +21,16 @@ apiClient.interceptors.request.use(
     // Obtenemos la información del token que está en el localStorage con la clave access_token
     const token = localStorage.getItem('access_token');
 
+    // Si es una petición de lectura (GET) a rutas públicas, NO enviamos token.
+    // Esto evita que un token vencido bloquee la vista pública.
+    const esRutaPublica = config.url.includes('/noticias/noticias/') 
+                          || config.url.includes('/noticias/eventos/') 
+                          || config.url.includes('/institucional/');
+    
+    if (config.method === 'get' && esRutaPublica) {
+      return config;
+    }
+
     // Si el token ha guardado el Token
     if (token) {
 

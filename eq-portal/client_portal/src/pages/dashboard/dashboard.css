@@ -64,6 +64,30 @@
   align-items: start;
 }
 
+/* Botones para eliminar en pila */
+.btn-danger {
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-danger:hover {
+  background-color: #b91c1c;
+}
+
+/* Para que los checkboxes se vean un poco más grandes */
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--color-primary); /* Pinta el checkbox de verde */
+}
+
 @media (min-width: 992px) {
   .dashboard-grid {
     grid-template-columns: 1fr 2fr; /* Equivalente a col-lg-4 y col-lg-8 */
