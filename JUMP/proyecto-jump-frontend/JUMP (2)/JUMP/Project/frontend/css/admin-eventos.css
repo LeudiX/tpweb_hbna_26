@@ -1,0 +1,59 @@
+/* Estilos exclusivos de la gestión de eventos. */
+.admin-btn--sm {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.85rem;
+}
+
+.admin-eventos-filtros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    align-items: end;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.8rem;
+    background: var(--color-bg);
+}
+
+.admin-eventos-filtros .admin-btn {
+    min-height: 3rem;
+}
+
+@media (max-width: 600px) {
+    #eventos-paginado {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: center;
+        justify-items: center;
+        gap: 0.75rem 0.5rem;
+    }
+
+    #eventos-paginado > label {
+        grid-column: 1 / -1;
+        justify-self: center;
+        text-align: center;
+    }
+
+    #eventos-prev {
+        grid-column: 1;
+        justify-self: end;
+        min-width: 6.5rem;
+    }
+
+    #eventos-info-pagina {
+        grid-column: 2;
+        justify-self: center;
+    }
+
+    #eventos-next {
+        grid-column: 3;
+        justify-self: start;
+        min-width: 6.5rem;
+    }
+}
+
+/* Separa las acciones consecutivas del formulario de encuentros. */
+#btn-agregar-participante + #btn-crear-evento {
+    margin-top: 0.75rem;
+}

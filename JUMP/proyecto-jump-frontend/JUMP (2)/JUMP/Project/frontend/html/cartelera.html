@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/jump/frontend/css/inicio.css">
+    <link rel="stylesheet" href="/jump/frontend/css/cartelera.css">
+    <script src="/jump/scripts/js/cartelera.js" defer></script>
+    <script src="/jump/scripts/js/formulario.js" defer></script>
+    <link rel="shortcut icon" href="/assets/favicon/favicon.png" type="image/x-icon">
+    <title>Cartelera - JUMP</title>
+</head>
+<body class="has-mobile-bottom-nav">
+
+    <!-- HEADER (Navegación) -->
+    <header class="header">
+        <div class="header__container">
+            <a class="header__brand" href="index.html" aria-label="JUMP, ir al inicio">
+                <img class="header__logo header__logo--light" src="/assets/Logo/JUMP_logo oscuro.png" alt="">
+            </a>
+
+            <nav class="header__nav" aria-label="Navegación principal">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item">
+                        <a class="header__nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a class="header__nav-link" href="ranking.html">Ranking</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <!-- Clase activa movida a Cartelera -->
+                        <a class="header__nav-link header__nav-link--active" href="cartelera.html" aria-current="page">Cartelera</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a class="header__nav-link" href="estadisticas.html">Estadísticas</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <a class="header__admin-link" href="acceso-administracion.html">
+                <span class="header__admin-label">Administración</span>
+                <span class="header__admin-icon" aria-hidden="true">
+                    <svg class="header__admin-icon-svg" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+            </a>
+        </div>
+    </header>
+
+    <nav class="mobile-bottom-nav" aria-label="Navegación principal">
+        <a class="mobile-bottom-nav__link" href="index.html" aria-label="Inicio" title="Inicio">
+            <svg class="mobile-bottom-nav__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>
+        </a>
+        <a class="mobile-bottom-nav__link" href="ranking.html" aria-label="Ranking" title="Ranking">
+            <svg class="mobile-bottom-nav__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H5v2a4 4 0 0 0 4 4m7-6h3v2a4 4 0 0 1-4 4m-3 1v4m-4 3h8m-7-3h6"/></svg>
+        </a>
+        <a class="mobile-bottom-nav__link" href="cartelera.html" aria-label="Cartelera" aria-current="page" title="Cartelera">
+            <svg class="mobile-bottom-nav__icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18m-13 4h2m4 0h2m-8 4h2"/></svg>
+        </a>
+        <a class="mobile-bottom-nav__link" href="estadisticas.html" aria-label="Estadísticas" title="Estadísticas">
+            <svg class="mobile-bottom-nav__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V4m0 16h17M8 16v-5m5 5V7m5 9v-8"/></svg>
+        </a>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL: CALENDARIO -->
+    <main class="main">
+        <div class="calendario-contenedor">
+            
+            <!-- Controles del Mes -->
+            <div class="calendario__cabecera">
+                <button class="calendario__btn" id="btn-prev" aria-label="Mes anterior">&lt;</button>
+                <h1 class="calendario__mes" id="mes-actual">Cargando...</h1>
+                <button class="calendario__btn" id="btn-next" aria-label="Mes siguiente">&gt;</button>
+            </div>
+
+            <!-- Días de la semana -->
+            <div class="calendario__dias-semana">
+                <span>DOM</span><span>LUN</span><span>MAR</span><span>MIE</span>
+                <span>JUE</span><span>VIE</span><span>SAB</span>
+            </div>
+
+            <!-- Cuadrícula dinámica controlada por JavaScript -->
+            <div class="calendario__grid" id="calendario-grid">
+                <!-- El archivo cartelera.js generará los días y eventos aquí -->
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- VENTANA MODAL (Detalles del Evento) -->
+    <div class="modal" id="modal-eventos">
+        <div class="modal__contenido">
+            <button class="modal__cerrar" aria-label="Cerrar ventana">&times;</button>
+            <h2 class="modal__fecha" id="modal-fecha-titulo">Fecha</h2>
+            
+            <!-- Lista dinámica controlada por JavaScript -->
+            <div class="modal__lista-eventos" id="modal-lista">
+                <!-- Los detalles de los partidos se inyectarán aquí -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer__container">
+            
+            <!-- Espacio para Logo Izquierdo (Logo principal) -->
+            <a class="footer__brand footer__brand--izq" href="index.html" aria-label="Ir al inicio">
+                <img class="footer__logo" src="/assets/Logo/JUMP_logo blanco.png" alt="Logo JUMP">
+            </a>
+
+            <!-- Enlaces Centrales -->
+            <nav class="footer__nav" aria-label="Navegación del pie de página">
+                <ul class="footer__nav-list">
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="index.html">Inicio</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="ranking.html">Ranking</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="cartelera.html">Cartelera</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="estadisticas.html">Estadísticas</a></li>
+                </ul>
+            </nav>
+
+            <!-- Espacio para Logo Derecho (Universidad, facultad, patrocinador, etc.) -->
+            <a class="footer__brand footer__brand--der" href="index.html" aria-label="Ir al inicio">
+                <img class="footer__logo" src="/assets/Logo/Logo Uci Blanco .png" alt="Logo UCI">
+            </a>
+
+        </div>
+    </footer>
+
+
+    <!-- VENTANA MODAL DE ADMINISTRACIÓN -->
+<div class="modal-admin" id="modal-admin">
+    <div class="modal-admin__contenido">
+        <button class="modal-admin__cerrar" id="btn-cerrar-admin" aria-label="Cerrar ventana">&times;</button>
+        <h2 class="modal-admin__titulo">Solo Administración</h2>
+        
+        <form class="modal-admin__form" id="form-admin">
+            <div class="modal-admin__grupo">
+                <label for="admin-user" class="modal-admin__label">Usuario</label>
+                <input type="text" id="admin-user" class="modal-admin__input" required placeholder="Ingresa tu usuario">
+            </div>
+            
+            <div class="modal-admin__grupo">
+                <label for="admin-pass" class="modal-admin__label">Contraseña</label>
+                <input type="password" id="admin-pass" class="modal-admin__input" required placeholder="Ingresa tu contraseña">
+            </div>
+            
+            <div class="modal-admin__error" id="login-error" style="display:none;"></div>
+            <button type="submit" class="modal-admin__btn-submit">Ingresar</button>
+        </form>
+    </div>
+</div>
+
+
+<script src="/jump/frontend/js/api-client.js" defer></script>
+<script src="/jump/frontend/js/auth.api.js" defer></script>
+<script src="/jump/frontend/js/admin-login.js" defer></script>
+<script src="/jump/frontend/js/eventos.api.js" defer></script>
+<script src="/jump/frontend/js/cartelera.controller.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+/* Estilos exclusivos del tab de resultados. */
+.admin-resultados-grid {
+    display: grid;
+    width: 100%;
+    min-width: 0;
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+#resultados,
+.admin-resultados-form,
+.admin-resultados-medallero {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.admin-resultados__leyenda {
+    margin: -0.75rem 0 0.75rem;
+    color: #65647A;
+    font-size: 0.78rem;
+    line-height: 1.45;
+}
+
+.admin-resultados-medallero .admin-tabla-scroll {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    max-height: min(65vh, 32rem);
+    overflow-x: auto;
+    overflow-y: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-color: #8f8da9 #ecebf2;
+    scrollbar-width: thin;
+}
+
+.admin-resultados-medallero .admin-tabla-scroll:focus-visible {
+    outline: 3px solid rgba(26, 16, 136, 0.28);
+    outline-offset: 2px;
+}
+
+.admin-resultados-medallero .admin-tabla-scroll::-webkit-scrollbar {
+    width: 0.65rem;
+    height: 0.65rem;
+}
+
+.admin-resultados-medallero .admin-tabla-scroll::-webkit-scrollbar-track {
+    background: #ecebf2;
+    border-radius: 999px;
+}
+
+.admin-resultados-medallero .admin-tabla-scroll::-webkit-scrollbar-thumb {
+    background: #8f8da9;
+    border: 2px solid #ecebf2;
+    border-radius: 999px;
+}
+
+.admin-form__tabla--medallero {
+    min-width: 52rem;
+    width: max-content;
+}
+
+.admin-form__tabla--medallero th,
+.admin-form__tabla--medallero td {
+    white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+    .admin-resultados-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .admin-resultados-grid {
+        gap: 1.25rem;
+    }
+
+    .admin-resultados-medallero .admin-tabla-scroll {
+        max-height: 60vh;
+        border-radius: 0.5rem;
+    }
+
+    .admin-form__tabla--medallero {
+        min-width: 49rem;
+        font-size: 0.84rem;
+    }
+
+    .admin-form__tabla--medallero th,
+    .admin-form__tabla--medallero td {
+        padding: 0.45rem 0.55rem;
+    }
+}
