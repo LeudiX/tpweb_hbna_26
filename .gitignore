@@ -188,3 +188,7 @@ __marimo__/
 
 # --- Entorno virtual específico del proyecto Portal Web 401 ---
 enviroment_portal/
+
+# Node / Frontend
+node_modules/
+client_portal/node_modules/

@@ -3,12 +3,35 @@
     {
       "src": "backend_portal/wsgi.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "client_portal/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "^/api/(.*)",
       "dest": "backend_portal/wsgi.py"
+    },
+    {
+      "src": "^/admin/(.*)",
+      "dest": "backend_portal/wsgi.py"
+    },
+    {
+      "src": "^/static/(.*)",
+      "dest": "backend_portal/wsgi.py"
+    },
+    {
+      "src": "^/(assets/.*|.*\\..*)$",
+      "dest": "client_portal/dist/$1"
+    },
+    {
+      "src": "^/(.*)$",
+      "dest": "client_portal/dist/index.html"
     }
   ]
 }
